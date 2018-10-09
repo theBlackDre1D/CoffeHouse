@@ -18,8 +18,6 @@ from django.contrib import admin
 from django.urls import include
 from django.views.generic import TemplateView
 
-from coffehouse.about import views as about_views
-from coffehouse.stores import views as stores_views
 
 urlpatterns = [
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),

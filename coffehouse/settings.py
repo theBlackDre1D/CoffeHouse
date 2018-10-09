@@ -43,6 +43,7 @@ INSTALLED_APPS = [
 
     'coffehouse.about',
     'coffehouse.stores'
+    'coffehouse.home'
 ]
 
 MIDDLEWARE = [

@@ -1,7 +1,80 @@
 body {
     background: url("../images/after-business-hours-architecture-bar-34650.jpg") no-repeat;
-      -webkit-background-size: cover;
+    -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+}
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: black;
+    color: white;
+    text-align: center;
+    opacity: 0.8;
+    filter: alpha(opacity=80);
+}
+
+.menu {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    background-color: black;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+
+    opacity: 0.8;
+    filter: alpha(opacity=80);
+    height: 60px;
+}
+
+.menu ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    color: white;
+}
+
+.menu li {
+    display: inline-table;
+    cursor: pointer;
+    font-family: Anson, serif;
+    /*padding-top: 5px;*/
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 18px;
+}
+
+.middleCircle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -175px;
+    margin-left: -175px;
+    box-shadow: 0 0 15px 10px black;
+
+    border-radius: 50%;
+    width: 350px;
+    height: 350px;
+    background: black;
+}
+
+.middleCircle p {
+    text-align: center;
+    line-height: 250px;
+    font-size: 30px;
+    color: white;
+    font-weight: bold;
+    font-family: Anson, serif;
+}
+
+
+@font-face {
+    font-family: Anson;
+    src: url("../fonts/Anson-Regular.otf") format("opentype");
 }
