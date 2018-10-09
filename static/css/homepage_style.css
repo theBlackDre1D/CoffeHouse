@@ -11,6 +11,7 @@ body {
     left: 0;
     bottom: 0;
     width: 100%;
+    height: 50px;
     background-color: black;
     color: white;
     text-align: center;
@@ -71,6 +72,25 @@ body {
     color: white;
     font-weight: bold;
     font-family: Anson, serif;
+}
+
+/*.footer img{*/
+    /*width: 10px;*/
+    /*height: 10px;*/
+/*}*/
+
+.icons {
+    bottom: 0;
+    left: 0;
+    width: 32px;
+    height: 32px;
+    padding-top: 10px;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+.footer li {
+    display: inline-table;
 }
 
 

@@ -42,8 +42,8 @@ INSTALLED_APPS = [
     'django.contrib.admindocs',
 
     'coffehouse.about',
-    'coffehouse.stores'
-    'coffehouse.home'
+    'coffehouse.stores',
+    'coffehouse.home',
 ]
 
 MIDDLEWARE = [

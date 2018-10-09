@@ -23,11 +23,20 @@
 
     <div class="middleCircle">
         <p> COFFEEHOUSE </p>
-
     </div>
 
+{#     maybe here implement AJAX calls for this pictures#}
     <div class="footer">
-        <p> This is test footer </p>
+{#        <p> This is test footer </p>#}
+        {% load staticfiles %}
+        <a href="https://github.com/theBlackDre1D/CoffeHouse">
+            <img class="icons" src="{% static "images/GitHub-Mark-Light-64px.png" %}">
+        </a>
+
+        {% load staticfiles %}
+        <a href="https://www.facebook.com/">
+            <img class="icons" src="{% static "images/facebook.png" %}">
+        </a>
     </div>
 
 </body>
