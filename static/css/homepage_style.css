@@ -34,6 +34,22 @@ body {
     height: 60px;
 }
 
+.menu a:link {
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    font-family: Anson, serif;
+    text-decoration: none;
+}
+
+.menu a:visited {
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    font-family: Anson, serif;
+    text-decoration: none;
+}
+
 .menu ul {
     list-style-type: none;
     margin: 0;
@@ -66,27 +82,34 @@ body {
 }
 
 .middleCircle p {
+    color: white !important;
+}
+
+.headline {
     text-align: center;
-    line-height: 250px;
-    font-size: 30px;
+    line-height: 50px;
+    padding-top: 40px;
+    font-size: 50px;
     color: white;
     font-weight: bold;
     font-family: Anson, serif;
 }
 
-/*.footer img{*/
-    /*width: 10px;*/
-    /*height: 10px;*/
-/*}*/
+.subtitle {
+    color: white;
+    position: absolute;
+    padding-left: 21%;
+    font-size: 20px;
+}
 
 .icons {
     bottom: 0;
     left: 0;
     width: 32px;
     height: 32px;
-    padding-top: 10px;
     padding-right: 10px;
     padding-left: 10px;
+    padding-bottom: 5px;
 }
 
 .footer li {

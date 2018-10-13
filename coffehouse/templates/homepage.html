@@ -2,14 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Homepage</title>
+    <title>Welcome at COFFEEHOUSE</title>
 
     {% load staticfiles %}
     <link rel="stylesheet" type="text/css" href="{% static "css/homepage_style.css" %}">
 </head>
 <body>
-
-{#    <h1> This is Django homepage </h1>#}
 
     <div class="menu">
         <ul>
@@ -17,26 +15,39 @@
             <li> <p>About</p> </li>
             <li> <p>Contact</p> </li>
             <li> <p>Gallery</p> </li>
-            <li> <p>Find us</p> </li>
+            <li>
+                <p> <a href="{% url 'about:contact' %}">Find us </a></p>
+            </li>
         </ul>
     </div>
 
     <div class="middleCircle">
-        <p> COFFEEHOUSE </p>
+        <p class="headline"> COFFEEHOUSE </p>
+        <p class="subtitle"> COFFEE   |   BEER   |   FOOD </p>
     </div>
 
 {#     maybe here implement AJAX calls for this pictures#}
     <div class="footer">
-{#        <p> This is test footer </p>#}
-        {% load staticfiles %}
-        <a href="https://github.com/theBlackDre1D/CoffeHouse">
-            <img class="icons" src="{% static "images/GitHub-Mark-Light-64px.png" %}">
-        </a>
 
-        {% load staticfiles %}
-        <a href="https://www.facebook.com/">
-            <img class="icons" src="{% static "images/facebook.png" %}">
-        </a>
+        <ul class="footerTable">
+            <li>
+                <a href="https://github.com/theBlackDre1D/CoffeHouse" target="_blank">
+                    <img class="icons" src="{% static "images/GitHub-Mark-Light-64px.png" %}">
+                </a>
+            </li>
+
+            <li>
+                <a href="https://www.facebook.com/" target="_blank">
+                    <img class="icons" src="{% static "images/facebook-white.png" %}">
+                </a>
+            </li>
+
+            <li>
+                <a href="https://www.instagram.com/" target="_blank">
+                    <img class="icons" src="{% static "images/instagram-white.png" %}">
+                </a>
+            </li>
+        </ul>
     </div>
 
 </body>
