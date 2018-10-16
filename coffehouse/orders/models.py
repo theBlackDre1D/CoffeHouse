@@ -25,7 +25,7 @@ class Drink(models.Model):
 class Order(models.Model):
     user = models.ForeignKey(User, related_name='client', on_delete=models.CASCADE)
     food = models.ForeignKey(Food, related_name='foods', on_delete=models.CASCADE)
-    drink = models.ForeignKey(Drink, related_name='drinks', on_delete=models.CASCADE)
+    drink = models.ForeignKey(Drink, related_name='drinks', on_delete=models.CASCADE, null=True)
     created_at = models.DateField(auto_now_add=True)
     processed = models.BooleanField()
     note = models.CharField(max_length=255, null=True)

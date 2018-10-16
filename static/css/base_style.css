@@ -1,0 +1,48 @@
+
+.menu {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    background-color: yellow;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+
+    opacity: 0.8;
+    filter: alpha(opacity=80);
+    height: 160px;
+}
+
+.menu a:link {
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    font-family: Anson, serif;
+    text-decoration: none;
+}
+
+.menu a:visited {
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    font-family: Anson, serif;
+    text-decoration: none;
+}
+
+.menu ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    color: white;
+}
+
+.menu li {
+    display: inline-table;
+    cursor: pointer;
+    font-family: Anson, serif;
+    /*padding-top: 5px;*/
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 18px;
+}

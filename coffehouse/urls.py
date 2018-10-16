@@ -24,7 +24,7 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
 
     # url(r'^$', TemplateView.as_view(template_name='homepage.html'), name="homepage"),
-    url(r'^', include('coffehouse.home.urls'), name="homepage"),
+    url(r'^', include('coffehouse.home.urls', namespace="home")),
 
     # url(r'^about/', about_views.contact),
     url(r'^about/', include('coffehouse.about.urls', namespace='about')),
@@ -33,5 +33,7 @@ urlpatterns = [
     # url(r'^stores/', stores_views.detail, {'location': 'Headquarters'}),
     # url(r'^stores/(?P<store_id>\d+)/', stores_views.detail),
     url(r'^stores/', include('coffehouse.stores.urls'), name='stores'),
+
+    url(r'^menu/', include('coffehouse.menu.urls'), name='menu'),
 
 ]

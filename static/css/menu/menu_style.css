@@ -1,22 +1,14 @@
 body {
-    background: url("../images/after-business-hours-architecture-bar-34650.jpg") no-repeat;
+    /*background: url("../../images/white_background.jpeg");*/
+    background: url("../../images/after-business-hours-architecture-bar-34650.jpg") no-repeat;
     background-size: cover;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
-}
+    /*background: white;*/
 
-.footer {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    height: 50px;
-    background-color: black;
-    color: white;
+    padding: 5%;
     text-align: center;
-    opacity: 0.8;
-    filter: alpha(opacity=80);
 }
 
 .menu {
@@ -67,55 +59,6 @@ body {
     font-size: 18px;
 }
 
-.middleCircle {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    margin-top: -175px;
-    margin-left: -175px;
-    box-shadow: 0 0 15px 10px black;
-
-    border-radius: 50%;
-    width: 350px;
-    height: 350px;
-    background: black;
-}
-
-.middleCircle p {
-    color: white !important;
-}
-
-.headline {
-    text-align: center;
-    line-height: 50px;
-    padding-top: 40px;
-    font-size: 50px;
-    color: white;
-    font-weight: bold;
-    font-family: Anson, serif;
-}
-
-.subtitle {
-    color: white;
-    position: absolute;
-    padding-left: 21%;
-    font-size: 20px;
-}
-
-.icons {
-    bottom: 0;
-    left: 0;
-    width: 32px;
-    height: 32px;
-    padding-right: 10px;
-    padding-left: 10px;
-    padding-bottom: 5px;
-}
-
-.footer li {
-    display: inline-table;
-}
-
 .brand_name {
     position: absolute;
     top: 2px;
@@ -146,20 +89,65 @@ body {
     text-decoration: none;
 }
 
-.login {
-    position: absolute;
-    top: 0;
-    right: 5px;
+.slideshow {
+  overflow: hidden;
+  height: 510px;
+  width: 728px;
+  margin: 0 auto;
 }
 
-.login p {
+.slideshow p {
     color: white;
-    cursor: pointer;
     font-family: Anson, serif;
+    align-content: flex-start;
+    font-size: 30px;
+}
+
+.slide-wrapper {
+  width: 2912px;
+  -webkit-animation: slide 18s ease infinite;
+}
+
+.slide {
+  float: left;
+  height: 510px;
+  width: 728px;
+}
+
+.slide:nth-child(1) {
+  background: #D93B65;
+}
+
+.slide:nth-child(2) {
+  background: #037E8C;
+}
+
+.slide:nth-child(3) {
+  background: #36BF66;
+}
+
+.slide:nth-child(4) {
+  background: #D9D055;
+}
+
+.slide-number {
+  color: #000;
+  text-align: center;
+  font-size: 10em;
+}
+
+@-webkit-keyframes slide {
+  20% {margin-left: 0px;}
+  30% {margin-left: -728px;}
+  50% {margin-left: -728px;}
+  60% {margin-left: -1456px;}
+  70% {margin-left: -1456px;}
+  80% {margin-left: -2184px;}
+  90% {margin-left: -2184px;}
 }
 
 
 @font-face {
     font-family: Anson;
-    src: url("../fonts/Anson-Regular.otf") format("opentype");
+    src: url("../../fonts/Anson-Regular.otf") format("opentype");
 }
