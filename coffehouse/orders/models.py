@@ -27,7 +27,7 @@ class Order(models.Model):
     food = models.ForeignKey(Food, related_name='foods', on_delete=models.CASCADE)
     drink = models.ForeignKey(Drink, related_name='drinks', on_delete=models.CASCADE, null=True)
     created_at = models.DateField(auto_now_add=True)
-    processed = models.BooleanField()
+    processed = models.BooleanField(default=False)
     note = models.CharField(max_length=255, null=True)
 
     def __str__(self):

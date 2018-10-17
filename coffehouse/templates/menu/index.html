@@ -40,21 +40,22 @@
 
     <div class="order">
         <form method="post">
+{#            <div class="form_group">#}
+{#                <label for="id_food">Your's desired food</label>#}
+{#                <input type="text" class="form_control" id="id_food" name="food">#}
+{#            </div>#}
+{##}
+{#            <div class="form_group">#}
+{#                <label for="id_address">Address</label>#}
+{#                <input type="text" class="form_control" id="id_address" name="address">#}
+{#            </div>#}
+{##}
+{#            <div class="form_group">#}
+{#                <label for="id_note">Note for us</label>#}
+{#                <textarea class="form_control" id="id_note" name="note" rows="5"></textarea>#}
+{#            </div>#}
             {% csrf_token %}
-            <div class="form_group">
-                <label for="id_food">Your's desired food</label>
-                <input type="text" class="form_control" id="id_food" name="food">
-            </div>
-
-            <div class="form_group">
-                <label for="id_address">Address</label>
-                <input type="text" class="form_control" id="id_address" name="address">
-            </div>
-
-            <div class="form_group">
-                <label for="id_note">Note for us</label>
-                <textarea class="form_control" id="id_note" name="note" rows="5"></textarea>
-            </div>
+            {{ form.as_p }}
 
             <button type="submit" class="btn btn-success">Post</button>
 

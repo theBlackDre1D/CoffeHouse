@@ -1,3 +1,5 @@
 from django.shortcuts import render
 
-# Create your views here.
+
+def successful_order(request):
+    return render(request, 'orders/successful_order.html')
