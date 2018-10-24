@@ -41,9 +41,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.admindocs',
 
+    # 'widget_tweaks',
+
     'coffehouse.about',
     'coffehouse.stores',
     'coffehouse.home',
+    'coffehouse.users',
     'coffehouse.orders',
     'coffehouse.menu',
 

@@ -2,12 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>COFFEHOUSE - Menu</title>
+    <title>Register new user</title>
 
     {% load staticfiles %}
-    <link rel="stylesheet" type="text/css" href="{% static "css/menu/menu_style.css" %}">
+    <link rel="stylesheet" type="text/css" href="{% static "css/users/register_style.css" %}">
 </head>
 <body>
+
     <div class="menu">
         <ul>
             <li>
@@ -17,7 +18,7 @@
             <li> <p>Contact</p> </li>
             <li> <p>Gallery</p> </li>
             <li>
-                <p> <a href="{% url 'about:contact' %}">Find us </a></p>
+                <p> <a href="{% url 'about:contact' %}"> Find us </a></p>
             </li>
         </ul>
     </div>
@@ -26,26 +27,15 @@
         <p> <a href="{% url 'home:homepage' %}"> COFFEEHOUSE </a></p>
     </div>
 
-    <div class="slideshow">
-        <p>Today food</p>
-          <div class="slide-wrapper">
-            <div class="slide"><h1 class="slide-number">1</h1></div>
-            <div class="slide"><h1 class="slide-number">2</h1></div>
-            <div class="slide"><h1 class="slide-number">3</h1></div>
-            <div class="slide"><h1 class="slide-number">4</h1></div>
-            <div class="slide"><h1 class="slide-number">5</h1></div>
-          </div>
-    </div>
-
-    <div class="order">
+    <div class="content">
         <form method="post">
-
             {% csrf_token %}
             {{ form.as_p }}
 
             <button type="submit" class="btn btn-success">Post</button>
-
         </form>
+
+        <p> Already have account? <a href="{% url 'users:login' %}"> Log in. </a> </p>
     </div>
 
 </body>

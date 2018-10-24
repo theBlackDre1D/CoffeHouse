@@ -35,5 +35,6 @@ urlpatterns = [
     url(r'^stores/', include('coffehouse.stores.urls'), name='stores'),
 
     url(r'^menu/', include('coffehouse.menu.urls'), name='menu'),
+    url(r'^menu/', include('coffehouse.users.urls', namespace="users"), name='users'),
 
 ]
