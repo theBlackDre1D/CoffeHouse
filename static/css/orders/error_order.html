@@ -1,12 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Unsuccessful order</title>
-</head>
-<body>
+{% extends 'base.html' %}
 
-    <h1> Something went wrong your order was not processed. Try it again! </h1>
+{% block extra_head %}
+{#    link here custom .css file#}
+{% endblock extra_head %}
 
-</body>
-</html>
+{% block content %}
+    <h1> Your order was not successful. Try it again. </h1>
+{% endblock content%}

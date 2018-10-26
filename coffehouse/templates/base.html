@@ -4,10 +4,11 @@
     <meta charset="UTF-8">
     <title> {% block title %} COFFEHOUSE {% endblock %} </title>
     <link rel="stylesheet" type="text/css" href="{% static "css/base_style.css" %}">
+    {% block extra_head %} {% endblock extra_head %}
+
 
 </head>
 <body>
-
     <div class="menu">
         <ul>
             <li> <p>Menu</p> </li>
@@ -25,7 +26,7 @@
     </div>
 
     {% block content %}
-    {% endblock %}
+    {% endblock content%}
 
 </body>
 </html>

@@ -1,31 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>COFFEHOUSE - Menu</title>
+{% extends 'base.html' %}
 
+{% block extra_head %}
     {% load staticfiles %}
     <link rel="stylesheet" type="text/css" href="{% static "css/menu/menu_style.css" %}">
-</head>
-<body>
-    <div class="menu">
-        <ul>
-            <li>
-                <p> <a href="{% url 'menu:index' %}"> Menu </a></p>
-            </li>
-            <li> <p>About</p> </li>
-            <li> <p>Contact</p> </li>
-            <li> <p>Gallery</p> </li>
-            <li>
-                <p> <a href="{% url 'about:contact' %}">Find us </a></p>
-            </li>
-        </ul>
-    </div>
+{% endblock extra_head %}
 
-    <div class="brand_name">
-        <p> <a href="{% url 'home:homepage' %}"> COFFEEHOUSE </a></p>
-    </div>
-
+{% block content %}
     <div class="slideshow">
         <p>Today food</p>
           <div class="slide-wrapper">
@@ -47,6 +27,4 @@
 
         </form>
     </div>
-
-</body>
-</html>
+{% endblock content %}

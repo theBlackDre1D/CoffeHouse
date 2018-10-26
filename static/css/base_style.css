@@ -1,17 +1,29 @@
+body {
+    /*background: url("../../images/white_background.jpeg");*/
+    background: url("../images/after-business-hours-architecture-bar-34650.jpg") no-repeat;
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    /*background: white;*/
+
+    padding: 5%;
+    text-align: center;
+}
 
 .menu {
     position: fixed;
     left: 0;
     top: 0;
     width: 100%;
-    background-color: yellow;
+    background-color: black;
     color: white;
     font-weight: bold;
     text-align: center;
 
     opacity: 0.8;
     filter: alpha(opacity=80);
-    height: 160px;
+    height: 60px;
 }
 
 .menu a:link {

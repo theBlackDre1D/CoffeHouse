@@ -1,93 +1,93 @@
-body {
-    /*background: url("../../images/white_background.jpeg");*/
-    background: url("../../images/after-business-hours-architecture-bar-34650.jpg") no-repeat;
-    background-size: cover;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    /*background: white;*/
+/*body {*/
+    /*!*background: url("../../images/white_background.jpeg");*!*/
+    /*background: url("../../images/after-business-hours-architecture-bar-34650.jpg") no-repeat;*/
+    /*background-size: cover;*/
+    /*-webkit-background-size: cover;*/
+    /*-moz-background-size: cover;*/
+    /*-o-background-size: cover;*/
+    /*!*background: white;*!*/
 
-    padding: 5%;
-    text-align: center;
-}
+    /*padding: 5%;*/
+    /*text-align: center;*/
+/*}*/
 
-.menu {
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 100%;
-    background-color: black;
-    color: white;
-    font-weight: bold;
-    text-align: center;
+/*.menu {*/
+    /*position: fixed;*/
+    /*left: 0;*/
+    /*top: 0;*/
+    /*width: 100%;*/
+    /*background-color: black;*/
+    /*color: white;*/
+    /*font-weight: bold;*/
+    /*text-align: center;*/
 
-    opacity: 0.8;
-    filter: alpha(opacity=80);
-    height: 60px;
-}
+    /*opacity: 0.8;*/
+    /*filter: alpha(opacity=80);*/
+    /*height: 60px;*/
+/*}*/
 
-.menu a:link {
-    color: white;
-    font-weight: bold;
-    text-align: center;
-    font-family: Anson, serif;
-    text-decoration: none;
-}
+/*.menu a:link {*/
+    /*color: white;*/
+    /*font-weight: bold;*/
+    /*text-align: center;*/
+    /*font-family: Anson, serif;*/
+    /*text-decoration: none;*/
+/*}*/
 
-.menu a:visited {
-    color: white;
-    font-weight: bold;
-    text-align: center;
-    font-family: Anson, serif;
-    text-decoration: none;
-}
+/*.menu a:visited {*/
+    /*color: white;*/
+    /*font-weight: bold;*/
+    /*text-align: center;*/
+    /*font-family: Anson, serif;*/
+    /*text-decoration: none;*/
+/*}*/
 
-.menu ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    color: white;
-}
+/*.menu ul {*/
+    /*list-style-type: none;*/
+    /*margin: 0;*/
+    /*padding: 0;*/
+    /*color: white;*/
+/*}*/
 
-.menu li {
-    display: inline-table;
-    cursor: pointer;
-    font-family: Anson, serif;
-    /*padding-top: 5px;*/
-    padding-left: 10px;
-    padding-right: 10px;
-    font-size: 18px;
-}
+/*.menu li {*/
+    /*display: inline-table;*/
+    /*cursor: pointer;*/
+    /*font-family: Anson, serif;*/
+    /*!*padding-top: 5px;*!*/
+    /*padding-left: 10px;*/
+    /*padding-right: 10px;*/
+    /*font-size: 18px;*/
+/*}*/
 
-.brand_name {
-    position: absolute;
-    top: 2px;
-    left: 10px;
-}
+/*.brand_name {*/
+    /*position: absolute;*/
+    /*top: 2px;*/
+    /*left: 10px;*/
+/*}*/
 
-.brand_name p {
-    /*font-size: 50px;*/
-    color: white;
-    cursor: pointer;
-    font-weight: bold;
-    font-family: Anson, serif;
-}
+/*.brand_name p {*/
+    /*!*font-size: 50px;*!*/
+    /*color: white;*/
+    /*cursor: pointer;*/
+    /*font-weight: bold;*/
+    /*font-family: Anson, serif;*/
+/*}*/
 
-.brand_name a:link {
-    color: white;
-    font-weight: bold;
-    text-align: center;
-    font-family: Anson, serif;
-    text-decoration: none;
-}
+/*.brand_name a:link {*/
+    /*color: white;*/
+    /*font-weight: bold;*/
+    /*text-align: center;*/
+    /*font-family: Anson, serif;*/
+    /*text-decoration: none;*/
+/*}*/
 
-.brand_name a:visited {
-    color: white;
-    font-weight: bold;
-    text-align: center;
-    font-family: Anson, serif;
-    text-decoration: none;
-}
+/*.brand_name a:visited {*/
+    /*color: white;*/
+    /*font-weight: bold;*/
+    /*text-align: center;*/
+    /*font-family: Anson, serif;*/
+    /*text-decoration: none;*/
+/*}*/
 
 .slideshow {
   overflow: hidden;

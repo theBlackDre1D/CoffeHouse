@@ -1,3 +1,4 @@
+from django.contrib.auth.models import User
 from django.shortcuts import render
 
 from coffehouse.users.forms import RegisterUser
@@ -19,7 +20,7 @@ def register(request):
 
             return render(request, 'users/welcome_new_user.html')
         else:
-            return render(request, 'user/register_error.html')
+            return render(request, 'users/register_error.html')
     else:
         form = RegisterUser()
 
