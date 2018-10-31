@@ -1,43 +1,88 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Welcome at COFFEEHOUSE</title>
+{#<!DOCTYPE html>#}
+{#<html lang="en">#}
+{#<head>#}
+{#    <meta charset="UTF-8">#}
+{#    <title>Welcome at COFFEEHOUSE</title>#}
+{##}
+{#    {% load staticfiles %}#}
+{#    <link rel="stylesheet" type="text/css" href="{% static "css/homepage_style.css" %}">#}
+{#</head>#}
+{#<body>#}
+{##}
+{#    <div class="menu">#}
+{#        <ul>#}
+{#            <li>#}
+{#                <p> <a href="{% url 'menu:index' %}"> Menu </a></p>#}
+{#            </li>#}
+{#            <li> <p>About</p> </li>#}
+{#            <li> <p>Contact</p> </li>#}
+{#            <li> <p>Gallery</p> </li>#}
+{#            <li>#}
+{#                <p> <a href="{% url 'about:contact' %}">Find us </a></p>#}
+{#            </li>#}
+{#        </ul>#}
+{#    </div>#}
+{##}
+{#    <div class="login">#}
+{#        <p> <a href="{% url 'users:test_register' %}"> LOG IN/SIGN UP </a></p>#}
+{##}
+{#    </div>#}
+{##}
+{#    <div class="brand_name">#}
+{#        <p> <a href="{% url 'home:homepage' %}"> COFFEEHOUSE </a></p>#}
+{#    </div>#}
+{##}
+{#    <div class="middleCircle">#}
+{#        <p class="headline"> COFFEEHOUSE </p>#}
+{#        <p class="subtitle"> COFFEE   |   BEER   |   FOOD </p>#}
+{#    </div>#}
+{##}
+{#     maybe here implement AJAX calls for this pictures#}
+{#    <div class="footer">#}
+{##}
+{#        <ul class="footerTable">#}
+{#            <li>#}
+{#                <a href="https://github.com/theBlackDre1D/CoffeHouse" target="_blank">#}
+{#                    <img class="icons" src="{% static "images/GitHub-Mark-Light-64px.png" %}">#}
+{#                </a>#}
+{#            </li>#}
+{##}
+{#            <li>#}
+{#                <a href="https://www.facebook.com/" target="_blank">#}
+{#                    <img class="icons" src="{% static "images/facebook-white.png" %}">#}
+{#                </a>#}
+{#            </li>#}
+{##}
+{#            <li>#}
+{#                <a href="https://www.instagram.com/" target="_blank">#}
+{#                    <img class="icons" src="{% static "images/instagram-white.png" %}">#}
+{#                </a>#}
+{#            </li>#}
+{#        </ul>#}
+{##}
+{#    </div>#}
+{##}
+{#</body>#}
+{#</html>#}
+
+{% extends 'base.html' %}
+
+{% block title %} Welcome at COFFEEHOUSE {% endblock %}
+
+{% block extra_head %}
 
     {% load staticfiles %}
     <link rel="stylesheet" type="text/css" href="{% static "css/homepage_style.css" %}">
-</head>
-<body>
 
-    <div class="menu">
-        <ul>
-            <li>
-                <p> <a href="{% url 'menu:index' %}"> Menu </a></p>
-            </li>
-            <li> <p>About</p> </li>
-            <li> <p>Contact</p> </li>
-            <li> <p>Gallery</p> </li>
-            <li>
-                <p> <a href="{% url 'about:contact' %}">Find us </a></p>
-            </li>
-        </ul>
-    </div>
+{% endblock extra_head %}
 
-    <div class="login">
-        <p> <a href="{% url 'users:test_register' %}"> LOG IN/SIGN UP </a></p>
-
-    </div>
-
-    <div class="brand_name">
-        <p> <a href="{% url 'home:homepage' %}"> COFFEEHOUSE </a></p>
-    </div>
+{% block content %}
 
     <div class="middleCircle">
         <p class="headline"> COFFEEHOUSE </p>
         <p class="subtitle"> COFFEE   |   BEER   |   FOOD </p>
     </div>
 
-{#     maybe here implement AJAX calls for this pictures#}
     <div class="footer">
 
         <ul class="footerTable">
@@ -62,5 +107,4 @@
 
     </div>
 
-</body>
-</html>
+{% endblock content%}
