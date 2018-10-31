@@ -1,32 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Register new user</title>
+{% extends 'base.html' %}
 
+{% block title %} Login to our system {% endblock %}
+
+{% block extra_head %}
     {% load staticfiles %}
     <link rel="stylesheet" type="text/css" href="{% static "css/users/register_style.css" %}">
-</head>
-<body>
+{% endblock extra_head %}
 
-    <div class="menu">
-        <ul>
-            <li>
-                <p> <a href="{% url 'menu:index' %}"> Menu </a></p>
-            </li>
-            <li> <p>About</p> </li>
-            <li> <p>Contact</p> </li>
-            <li> <p>Gallery</p> </li>
-            <li>
-                <p> <a href="{% url 'about:contact' %}"> Find us </a></p>
-            </li>
-        </ul>
-    </div>
-
-    <div class="brand_name">
-        <p> <a href="{% url 'home:homepage' %}"> COFFEEHOUSE </a></p>
-    </div>
-
+{% block content %}
     <div class="content">
         <form method="post">
             {% csrf_token %}
@@ -37,6 +18,4 @@
 
         <p> Already have account? <a href="{% url 'users:login' %}"> Log in. </a> </p>
     </div>
-
-</body>
-</html>
+{% endblock content%}

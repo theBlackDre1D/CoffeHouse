@@ -46,9 +46,9 @@ INSTALLED_APPS = [
     'coffehouse.about',
     'coffehouse.stores',
     'coffehouse.home',
-    'coffehouse.users',
     'coffehouse.orders',
     'coffehouse.menu',
+    'coffehouse.users',
 
 ]
 
@@ -113,7 +113,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-# AUTH_USER_MODEL = 'users.CustomUser'
+AUTH_USER_MODEL = 'users.BaseUser'
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.11/topics/i18n/

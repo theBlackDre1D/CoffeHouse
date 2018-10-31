@@ -88,3 +88,38 @@ body {
     font-family: Anson, serif;
     text-decoration: none;
 }
+
+.login {
+    position: absolute;
+    top: 0;
+    right: 5px;
+}
+
+.login p {
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    font-family: Anson, serif;
+}
+
+.login a:link {
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    font-family: Anson, serif;
+    text-decoration: none;
+}
+
+.login a:visited {
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    font-family: Anson, serif;
+    text-decoration: none;
+}
+
+
+@font-face {
+    font-family: Anson;
+    src: url("../fonts/Anson-Regular.otf") format("opentype");
+}
