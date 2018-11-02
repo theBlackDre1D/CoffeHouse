@@ -3,9 +3,19 @@
 {% block title %} Login to our system {% endblock %}
 
 {% block extra_head %} 
-{#    link here custom .css file#}
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static "css/users/register_style.css" %}">
 {% endblock extra_head %}
 
 {% block content %}
-    <h1> Login to our system </h1>
+    <div class="content">
+        <h1> Login to our system </h1>
+
+        <form method="post">
+            {% csrf_token %}
+            {{ form }}
+
+            <button type="submit" class="btn btn-success"> Log in </button>
+        </form>
+    </div>
 {% endblock content%}

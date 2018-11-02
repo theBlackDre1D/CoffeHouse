@@ -16,8 +16,15 @@ class RegisterUser(forms.ModelForm):
         fields = ['login', 'real_name', 'password', 'email']
 
 
+class LoginUser(forms.Form):
+    login = forms.CharField(widget=forms.TextInput(), max_length=30)
+    password = forms.CharField(widget=forms.PasswordInput())
+
+
+# Not in use
 class RegisterNewCustomerForm(UserCreationForm):
     address = forms.CharField(widget=forms.TextInput(), max_length=100, required=True)
+    country = forms.CharField(widget=forms.TextInput(), max_length=20, required=True)
 
     class Meta(UserCreationForm.Meta):
         model = BaseUser
@@ -27,6 +34,8 @@ class RegisterNewCustomerForm(UserCreationForm):
             user = super().save(commit=False)
             user.is_customer = True
             user.save()
+
             customer = Customer.objects.create(user=user)
-            
+
+
             return user

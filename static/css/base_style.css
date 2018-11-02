@@ -118,6 +118,15 @@ body {
     text-decoration: none;
 }
 
+.content {
+    display: block;
+    background: whitesmoke;
+    margin-left: auto;
+    margin-right: auto;
+    width: 600px;
+    height: 700px;
+}
+
 
 @font-face {
     font-family: Anson;

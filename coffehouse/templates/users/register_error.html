@@ -1,10 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Error</title>
-</head>
-<body>
-    <h1> Something went wrong </h1>
-</body>
-</html>
+{% extends 'base.html' %}
+
+{% block title %} Error {% endblock %}
+
+{% block extra_head %}
+{#    link here custom .css file#}
+{% endblock extra_head %}
+
+{% block content %}
+
+    <div class="content">
+        <h1> Unsuccessful login because: </h1>
+
+        {% for error in reasons %}
+        <p> {{ error }}</p><br>
+    {% endfor %}
+    </div>
+
+{% endblock content%}

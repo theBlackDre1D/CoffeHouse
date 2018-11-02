@@ -14,6 +14,8 @@ class CustomUser(models.Model):
         return self.login
 
 
+
+# Not in use
 class BaseUser(AbstractUser):
     is_owner = models.BooleanField(default=False)
     is_service = models.BooleanField(default=False)
