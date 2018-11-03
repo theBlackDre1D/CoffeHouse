@@ -28,10 +28,15 @@ def login(request):
     if request.method == 'POST':
         visitor = LoginUser(request.POST)
         if visitor.is_valid():
+            login = visitor.cleaned_data['login']
+            password = visitor.cleaned_data['password']
             try:
-                user = CustomUser.objects.get(login=visitor.cleaned_data['login'])
-                if user.password != visitor.cleaned_data['password']:
+                user = CustomUser.objects.get(login=login)
+                if user.password != password:
                     raise ValueError('Wrong password!')
+                else:
+                    request.session['logged_user'] = login
+                    return render(request, 'users/profile.html', {'actual_user': user})
             except ValueError as e:
                 error = e.args
                 return render(request, 'users/register_error.html', {'reasons': error})
@@ -51,6 +56,8 @@ def register(request):
         new_user = RegisterUser(request.POST)
         if new_user.is_valid():
             new_user.save()
+            # just testing if user is
+            users = CustomUser.objects.all()
 
             return render(request, 'users/welcome_new_user.html')
         else:

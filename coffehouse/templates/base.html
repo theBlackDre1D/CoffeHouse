@@ -24,8 +24,11 @@
     </div>
 
     <div class="login">
-        <p> <a href="{% url 'users:register' %}"> LOG IN/SIGN UP </a></p>
-
+        {% if request.session.logged_user %}
+            <p> <a href="{% url 'users:profile' %}"> {{ request.session.logged_user }} </a></p>
+        {% else %}
+            <p> <a href="{% url 'users:register' %}"> LOG IN/SIGN UP </a></p>
+        {% endif %}
     </div>
 
     <div class="brand_name">

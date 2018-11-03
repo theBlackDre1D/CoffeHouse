@@ -1,5 +1,9 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
+from django.contrib.auth.forms import UserChangeForm
+
+from coffehouse.users.models import BaseUser, CustomUser, Customer
+
 
 #
 #
@@ -14,11 +18,6 @@ from django.contrib.auth.admin import UserAdmin
 #     list_display = ['email', 'username']
 #
 #
-
-# admin.site.register(CustomUser)
-from django.contrib.auth.forms import UserChangeForm
-
-from coffehouse.users.models import BaseUser
 
 
 class MyUserChangeForm(UserChangeForm):
@@ -35,3 +34,5 @@ class MyUserAdmin(UserAdmin):
 
 
 admin.site.register(BaseUser, MyUserAdmin)
+admin.site.register(Customer)
+admin.site.register(CustomUser)

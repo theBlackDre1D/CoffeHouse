@@ -10,10 +10,12 @@ class RegisterUser(forms.ModelForm):
     real_name = forms.CharField(widget=forms.TextInput(), max_length=100, required=True)
     password = forms.CharField(widget=forms.PasswordInput())
     email = forms.EmailField(required=True)
+    address = forms.CharField(widget=forms.TextInput(), max_length=100, required=True)
+    country = forms.CharField(widget=forms.TextInput(), max_length=40, required=True)
 
     class Meta:
         model = CustomUser
-        fields = ['login', 'real_name', 'password', 'email']
+        fields = ['login', 'real_name', 'password', 'email', 'address', 'country']
 
 
 class LoginUser(forms.Form):
@@ -36,6 +38,4 @@ class RegisterNewCustomerForm(UserCreationForm):
             user.save()
 
             customer = Customer.objects.create(user=user)
-
-
             return user

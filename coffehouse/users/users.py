@@ -3,11 +3,11 @@ from django.shortcuts import redirect
 from django.views.generic import CreateView
 
 from coffehouse.users.forms import RegisterNewCustomerForm
-from coffehouse.users.models import BaseUser
+from coffehouse.users.models import BaseUser, Customer
 
 
 class RegisterNewCustomerView(CreateView):
-    model = BaseUser
+    model = Customer
     form_class = RegisterNewCustomerForm
     template_name = 'users/register.html'
 
