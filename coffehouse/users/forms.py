@@ -30,12 +30,13 @@ class RegisterNewCustomerForm(UserCreationForm):
 
     class Meta(UserCreationForm.Meta):
         model = BaseUser
+        fields = ['username', 'first_name', 'last_name', 'email', 'address', 'country']
 
         @transaction.atomic
         def save(self):
             user = super().save(commit=False)
-            user.is_customer = True
+            # user.is_customer = True
             user.save()
 
-            customer = Customer.objects.create(user=user)
+            Customer.objects.create(user=user)
             return user
