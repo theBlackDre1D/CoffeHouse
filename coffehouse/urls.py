@@ -33,7 +33,7 @@ urlpatterns = [
     # url(r'^stores/(?P<store_id>\d+)/', stores_views.detail),
     url(r'^stores/', include('coffehouse.stores.urls'), name='stores'),
 
-    url(r'^menu/', include('coffehouse.menu.urls'), name='menu'),
     url(r'^users/', include('coffehouse.users.urls', namespace="users"), name='users'),
+    url(r'^menu/', include('coffehouse.menu.urls'), name='menu'),
 
 ]

@@ -15,8 +15,6 @@ class CustomUser(models.Model):
         return self.login
 
 
-
-# Not in use
 class BaseUser(AbstractUser):
     is_owner = models.BooleanField(default=False)
     is_service = models.BooleanField(default=False)
@@ -29,6 +27,7 @@ class BaseUser(AbstractUser):
 class Customer(models.Model):
     user = models.OneToOneField(BaseUser, on_delete=models.CASCADE, primary_key=True)
     address = models.CharField(max_length=100)
+    country = models.CharField(max_length=40, default=" ")
 
     def __str__(self):
         return self.user.username

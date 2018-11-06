@@ -24,11 +24,6 @@
     </div>
 
     <div class="login">
-{#        {% if request.session.logged_user %}#}
-{#            <p> <a href="{% url 'users:profile' %}"> {{ request.session.logged_user }} </a></p>#}
-{#        {% else %}#}
-{#            <p> <a href="{% url 'users:test_register' %}"> LOG IN/SIGN UP </a></p>#}
-{#        {% endif %}#}
         {% if user.is_authenticated %}
             <p>Hi {{ user.username }}
             <p><a href="{% url 'users:logout' %}">Log out</a></p>

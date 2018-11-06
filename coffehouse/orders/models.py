@@ -1,6 +1,6 @@
 from django.db import models
 
-from coffehouse.users.models import CustomUser
+from coffehouse.users.models import CustomUser, Customer
 
 
 class Food(models.Model):
@@ -27,7 +27,7 @@ class Drink(models.Model):
 
 
 class Order(models.Model):
-    user = models.ForeignKey(CustomUser, related_name='client', on_delete=models.CASCADE, null=True)
+    user = models.ForeignKey(Customer, related_name='client', on_delete=models.CASCADE, null=True)
     food = models.ForeignKey(Food, related_name='foods', on_delete=models.CASCADE)
     drink = models.ForeignKey(Drink, related_name='drinks', on_delete=models.CASCADE, null=True)
     created_at = models.DateField(auto_now_add=True)

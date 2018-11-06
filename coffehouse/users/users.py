@@ -17,8 +17,11 @@ class RegisterNewCustomerView(CreateView):
 
     def form_valid(self, form):
         user = form.save()
+        address = form.cleaned_data['address']
+        country = form.cleaned_data['country']
         user.is_customer = True
         user.save()
         login(self.request, user)
+        Customer.objects.create(user=user, address=address, country=country)
         return redirect('users:welcome')
 

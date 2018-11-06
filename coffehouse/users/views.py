@@ -24,28 +24,6 @@ def test_register(request):
     return render(request, 'users/test_register.html', {'form': form})
 
 
-# def login(request):
-#     if request.method == 'POST':
-#         visitor = LoginUser(request.POST)
-#         if visitor.is_valid():
-#             login = visitor.cleaned_data['login']
-#             password = visitor.cleaned_data['password']
-#             try:
-#                 user = CustomUser.objects.get(login=login)
-#                 if user.password != password:
-#                     raise ValueError('Wrong password!')
-#                 else:
-#                     request.session['logged_user'] = login
-#                     return render(request, 'users/profile.html', {'actual_user': user})
-#             except ValueError as e:
-#                 error = e.args
-#                 return render(request, 'users/register_error.html', {'reasons': error})
-#         # else:
-#         #     dsfs
-#     else:
-#         form = LoginUser
-#     return render(request, 'users/login.html', {'form': form})
-
 def login_user(request):
     if request.method == 'POST':
         visitor = LoginUser(request.POST)
@@ -57,10 +35,12 @@ def login_user(request):
 
             if user is not None:
                 login(request, user)
+
+                return render(request, 'homepage.html')
             else:
-                error = "Bad credentials!"
-                return render(request, 'some_error.html', {'reasons': error})
-    # else:
+                error = ValueError("Bad credentials!")
+                return render(request, 'some_error.html', {'reasons': error.args})
+
     form = LoginUser
     return render(request, 'users/login.html', {'form': form})
 
