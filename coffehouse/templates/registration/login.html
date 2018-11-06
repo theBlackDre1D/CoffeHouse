@@ -2,20 +2,18 @@
 
 {% block title %} Login to our system {% endblock %}
 
-{% block extra_head %}
+{% block extra_head %} 
     {% load staticfiles %}
     <link rel="stylesheet" type="text/css" href="{% static "css/users/register_style.css" %}">
 {% endblock extra_head %}
 
 {% block content %}
     <div class="content">
-        <form method="post">
-            {% csrf_token %}
-            {{ form.as_p }}
-
-            <button type="submit" class="btn btn-success"> Register </button>
-        </form>
-
-        <p> Already have account? <a href="{% url 'users:login' %}"> Log in. </a> </p>
+        <h2>Login</h2>
+            <form method="post">
+                  {% csrf_token %}
+                  {{ form.as_p }}
+                  <button type="submit">Login</button>
+            </form>
     </div>
 {% endblock content%}

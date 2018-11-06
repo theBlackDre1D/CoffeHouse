@@ -22,4 +22,3 @@ class RegisterNewCustomerView(CreateView):
         login(self.request, user)
         return redirect('users:welcome')
 
-

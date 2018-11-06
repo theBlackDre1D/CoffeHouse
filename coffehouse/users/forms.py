@@ -1,5 +1,5 @@
 from django import forms
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 from django.db import transaction
 
 from coffehouse.users.models import CustomUser, BaseUser, Customer
@@ -23,7 +23,7 @@ class LoginUser(forms.Form):
     password = forms.CharField(widget=forms.PasswordInput())
 
 
-# Not in use
+# Not in use ##########################################################################################################
 class RegisterNewCustomerForm(UserCreationForm):
     address = forms.CharField(widget=forms.TextInput(), max_length=100, required=True)
     country = forms.CharField(widget=forms.TextInput(), max_length=20, required=True)
@@ -35,8 +35,13 @@ class RegisterNewCustomerForm(UserCreationForm):
         @transaction.atomic
         def save(self):
             user = super().save(commit=False)
-            # user.is_customer = True
             user.save()
-
             Customer.objects.create(user=user)
             return user
+
+
+class CustomerChangeForm(UserChangeForm):
+
+    class Meta:
+        model = Customer
+        fields = UserChangeForm.Meta.fields

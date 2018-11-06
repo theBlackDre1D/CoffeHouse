@@ -21,6 +21,7 @@ from coffehouse.users.models import BaseUser, CustomUser, Customer
 
 
 class MyUserChangeForm(UserChangeForm):
+
     class Meta(UserChangeForm.Meta):
         model = BaseUser
 

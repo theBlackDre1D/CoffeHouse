@@ -18,7 +18,6 @@ from django.contrib import admin
 from django.urls import include
 from django.views.generic import TemplateView
 
-
 urlpatterns = [
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
     url(r'^admin/', admin.site.urls),
@@ -35,6 +34,6 @@ urlpatterns = [
     url(r'^stores/', include('coffehouse.stores.urls'), name='stores'),
 
     url(r'^menu/', include('coffehouse.menu.urls'), name='menu'),
-    url(r'^menu/', include('coffehouse.users.urls', namespace="users"), name='users'),
+    url(r'^users/', include('coffehouse.users.urls', namespace="users"), name='users'),
 
 ]
