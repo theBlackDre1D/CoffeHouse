@@ -32,6 +32,7 @@ urlpatterns = [
     # url(r'^stores/', stores_views.detail, {'location': 'Headquarters'}),
     # url(r'^stores/(?P<store_id>\d+)/', stores_views.detail),
     url(r'^stores/', include('coffehouse.stores.urls'), name='stores'),
+    url(r'^orders', include('coffehouse.orders.urls'), name='orders'),
 
     url(r'^users/', include('coffehouse.users.urls', namespace="users"), name='users'),
     url(r'^menu/', include('coffehouse.menu.urls'), name='menu'),

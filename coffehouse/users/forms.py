@@ -2,7 +2,7 @@ from django import forms
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 from django.db import transaction
 
-from coffehouse.users.models import BaseUser, Customer
+from coffehouse.users.models import BaseUser, Customer, Service
 
 
 # class RegisterUser(forms.ModelForm):
@@ -41,7 +41,23 @@ class RegisterNewCustomerForm(UserCreationForm):
 
 
 class CustomerChangeForm(UserChangeForm):
-
     class Meta:
         model = Customer
         fields = UserChangeForm.Meta.fields
+
+
+class RegisterNewServiceForm(UserCreationForm):
+    address = forms.CharField(widget=forms.TextInput(), max_length=100, required=True)
+    country = forms.CharField(widget=forms.TextInput(), max_length=20, required=True)
+    IBAN = forms.CharField(widget=forms.TextInput(), max_length=100, required=True)
+
+    class Meta:
+        model = BaseUser
+        fields = ['username', 'first_name', 'last_name', 'email', 'address', 'country', 'IBAN']
+
+        @transaction.atomic
+        def save(self):
+            user = super().save(commit=False)
+            user.save()
+            Service.objects.create(user=user)
+            return user

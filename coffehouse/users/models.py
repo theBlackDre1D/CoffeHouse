@@ -35,4 +35,14 @@ class Customer(models.Model):
 
 class Service(models.Model):
     user = models.OneToOneField(BaseUser, on_delete=models.CASCADE, primary_key=True)
+    address = models.CharField(max_length=100, default=" ")
+    country = models.CharField(max_length=40, default=" ")
     start_date = models.DateField(auto_now_add=True)
+    end_date = models.DateField(blank=True, null=True)
+    IBAN = models.CharField(max_length=100, default=" ")
+
+    def __str__(self):
+        return self.user.username
+
+
+

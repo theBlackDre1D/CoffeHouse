@@ -1,6 +1,6 @@
 from django.db import models
 
-from coffehouse.users.models import Customer
+from coffehouse.users.models import Customer, Service
 
 
 class Food(models.Model):
@@ -32,6 +32,7 @@ class Order(models.Model):
     drink = models.ForeignKey(Drink, related_name='drinks', on_delete=models.CASCADE, null=True)
     created_at = models.DateField(auto_now_add=True)
     processed = models.BooleanField(default=False)
+    processed_by = models.ForeignKey(Service, related_name='processed_by', on_delete=models.CASCADE, null=True)
     note = models.CharField(max_length=255, null=True)
 
     def __str__(self):

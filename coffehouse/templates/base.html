@@ -27,9 +27,16 @@
         {% if user.is_authenticated %}
             <p>Hi {{ user.username }}
             <p><a href="{% url 'users:logout' %}">Log out</a></p>
+
+            {% if user.is_service %}
+                <p><a href="{% url 'users:logout' %}"> Go to orders </a></p>
+            {% endif %}
+
+            {% if user.is_owner %}
+                <p><a href="{% url 'users:register_service' %}"> Register new service </a></p>
+            {% endif %}
         {% else %}
             <p> <a href="{% url 'users:test_register' %}"> LOG IN/SIGN UP </a></p>
-
         {% endif %}
     </div>
 

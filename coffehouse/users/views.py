@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render
 from django.contrib.auth import authenticate, login, logout
 
 from coffehouse.users.forms import RegisterNewCustomerForm, LoginUser
@@ -39,9 +39,11 @@ def login_user(request):
                 return render(request, 'homepage.html')
             else:
                 error = ValueError("Bad credentials!")
+
                 return render(request, 'some_error.html', {'reasons': error.args})
 
     form = LoginUser
+
     return render(request, 'users/login.html', {'form': form})
 
 
@@ -52,6 +54,10 @@ def logout_user(request):
 
 
 def welcome(request):
+    return render(request, 'users/welcome_new_user.html')
+
+
+def creation_service_success(request):
     return render(request, 'users/welcome_new_user.html')
 
 
