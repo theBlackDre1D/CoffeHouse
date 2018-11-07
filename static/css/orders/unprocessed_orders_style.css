@@ -1,0 +1,14 @@
+.order {
+    border: solid 2px black;
+    margin: 10px;
+}
+
+.username {
+    font-weight: bold;
+}
+
+.line {
+    width: 500px;
+    border-bottom: 1px solid black;
+    margin: auto;
+}

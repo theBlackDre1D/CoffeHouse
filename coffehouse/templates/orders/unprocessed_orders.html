@@ -4,13 +4,21 @@
 
 {% block extra_head %} 
     {% load staticfiles %}
-{#    <link rel="stylesheet" type="text/css" href="{% static "css/users/register_style.css" %}">#}
+    <link rel="stylesheet" type="text/css" href="{% static "css/orders/unprocessed_orders_style.css" %}">
 {% endblock extra_head %}
 
 {% block content %}
     <div class="content">
         <h1> Orders waiting to be processed: </h1>
 
+        {% for order in orders %}
+            <div class="order">
+                <p> {{ order.food.name }}</p>
+                <div class="line"> </div>
+                <p class="username"> {{ order.user.user.username }}</p>
+                <p> {{ order.user.address }}</p>
+            </div>
+        {% endfor %}
 
     </div>
 {% endblock content%}

@@ -48,4 +48,4 @@ class RegisterNewServiceView(CreateView):
         # login(self.request, user) don't want to login service after creation account
         Service.objects.create(user=user, address=address, country=country, IBAN=IBAN)
 
-        return redirect('users:welcome')
+        return redirect('home:homepage')
