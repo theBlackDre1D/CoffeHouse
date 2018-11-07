@@ -2,20 +2,20 @@ from django import forms
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 from django.db import transaction
 
-from coffehouse.users.models import CustomUser, BaseUser, Customer
+from coffehouse.users.models import BaseUser, Customer
 
 
-class RegisterUser(forms.ModelForm):
-    login = forms.CharField(widget=forms.TextInput(), max_length=30, required=True)
-    real_name = forms.CharField(widget=forms.TextInput(), max_length=100, required=True)
-    password = forms.CharField(widget=forms.PasswordInput())
-    email = forms.EmailField(required=True)
-    address = forms.CharField(widget=forms.TextInput(), max_length=100, required=True)
-    country = forms.CharField(widget=forms.TextInput(), max_length=40, required=True)
-
-    class Meta:
-        model = CustomUser
-        fields = ['login', 'real_name', 'password', 'email', 'address', 'country']
+# class RegisterUser(forms.ModelForm):
+#     login = forms.CharField(widget=forms.TextInput(), max_length=30, required=True)
+#     real_name = forms.CharField(widget=forms.TextInput(), max_length=100, required=True)
+#     password = forms.CharField(widget=forms.PasswordInput())
+#     email = forms.EmailField(required=True)
+#     address = forms.CharField(widget=forms.TextInput(), max_length=100, required=True)
+#     country = forms.CharField(widget=forms.TextInput(), max_length=40, required=True)
+#
+#     class Meta:
+#         model = CustomUser
+#         fields = ['login', 'real_name', 'password', 'email', 'address', 'country']
 
 
 class LoginUser(forms.Form):

@@ -1,6 +1,6 @@
 from django.db import models
 
-from coffehouse.users.models import CustomUser, Customer
+from coffehouse.users.models import Customer
 
 
 class Food(models.Model):

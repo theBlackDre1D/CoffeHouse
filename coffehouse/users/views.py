@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 
-from coffehouse.users.forms import RegisterUser, RegisterNewCustomerForm, LoginUser
+from coffehouse.users.forms import RegisterNewCustomerForm, LoginUser
 
 
 def show_profile(request):
@@ -55,16 +55,16 @@ def welcome(request):
     return render(request, 'users/welcome_new_user.html')
 
 
-def register(request):
-    if request.method == 'POST':
-        new_user = RegisterUser(request.POST)
-        if new_user.is_valid():
-            new_user.save()
-
-            return render(request, 'users/welcome_new_user.html')
-        else:
-            return render(request, 'users/register_error.html')
-    else:
-        form = RegisterUser()
-
-    return render(request, 'users/register.html', {'form': form})
+# def register(request):
+#     if request.method == 'POST':
+#         new_user = RegisterUser(request.POST)
+#         if new_user.is_valid():
+#             new_user.save()
+#
+#             return render(request, 'users/welcome_new_user.html')
+#         else:
+#             return render(request, 'users/register_error.html')
+#     else:
+#         form = RegisterUser()
+#
+#     return render(request, 'users/register.html', {'form': form})
