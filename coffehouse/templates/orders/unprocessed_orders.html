@@ -13,12 +13,30 @@
 
         {% for order in orders %}
             <div class="order">
+                <div class="success_processed" style="display: none;" id="extra-content">
+                    <p> This order was successfully processed! </p>
+                </div>
                 <p> {{ order.food.name }}</p>
                 <div class="line"> </div>
                 <p class="username"> {{ order.user.user.username }}</p>
                 <p> {{ order.user.address }}</p>
+
+                <input type="submit" class="btn-link" name="proceed" value="Process order" id="proceed-order">
             </div>
         {% endfor %}
 
     </div>
 {% endblock content%}
+
+{% block extra_scripts %}
+    <script>
+        $(document).ready(function() {
+            $("#extra-content").hide();
+                $("#proceed-order").click(function(){
+                    $("#extra-content").show();
+                    $("#proceed-order").hide();
+                    console.log("User clicked on button!")
+                });
+        });
+    </script>
+{% endblock %}
