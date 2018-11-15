@@ -19,3 +19,29 @@
         </form>
     </div>
 {% endblock content%}
+
+{% block extra_scripts %}
+{#    <script>#}
+{#        $("#id_login").change(function () {#}
+{#          console.log( $(this).val() );#}
+{#        });#}
+{#    </script>#}
+      <script>
+        $("#id_login").change(function () {
+          var username = $(this).val();
+
+          $.ajax({
+            url: '/ajax/validate_username/',
+            data: {
+              'username': username
+            },
+            dataType: 'json',
+            success: function (data) {
+              if (!data.is_taken) {
+                alert("A user with this username is not registered.");
+              }
+            }
+          });
+        });
+    </script>
+{% endblock extra_scripts %}

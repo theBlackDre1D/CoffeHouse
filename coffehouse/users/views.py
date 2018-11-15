@@ -1,7 +1,9 @@
+from django.http import JsonResponse
 from django.shortcuts import render
 from django.contrib.auth import authenticate, login, logout
 
 from coffehouse.users.forms import RegisterNewCustomerForm, LoginUser
+from coffehouse.users.models import BaseUser
 
 
 def show_profile(request):
@@ -59,6 +61,14 @@ def welcome(request):
 
 def creation_service_success(request):
     return render(request, 'users/welcome_new_user.html')
+
+
+def validate_username(request):
+    username = request.GET.get('username', None)
+    data = {
+        'is_taken': BaseUser.objects.filter(username__iexact=username).exists()
+    }
+    return JsonResponse(data)
 
 
 # def register(request):

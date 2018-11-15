@@ -18,6 +18,9 @@ from django.contrib import admin
 from django.urls import include
 from django.views.generic import TemplateView
 
+from coffehouse.users import views
+
+
 urlpatterns = [
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
     url(r'^admin/', admin.site.urls),
@@ -36,5 +39,7 @@ urlpatterns = [
 
     url(r'^users/', include('coffehouse.users.urls', namespace="users"), name='users'),
     url(r'^menu/', include('coffehouse.menu.urls'), name='menu'),
+
+    url(r'^ajax/validate_username/', views.validate_username, name='validate_username'),
 
 ]
