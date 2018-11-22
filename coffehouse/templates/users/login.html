@@ -4,19 +4,22 @@
 
 {% block extra_head %} 
     {% load staticfiles %}
-    <link rel="stylesheet" type="text/css" href="{% static "css/users/register_style.css" %}">
+    <link rel="stylesheet" type="text/css" href="{% static "css/users/login_style.css" %}">
 {% endblock extra_head %}
 
 {% block content %}
     <div class="content">
         <h1> Login to our system </h1>
 
-        <form method="post">
-            {% csrf_token %}
-            {{ form }}
+        <div class="login_forms">
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
 
-            <button type="submit" class="btn btn-success"> Log in </button>
-        </form>
+                <button type="submit" class="button"> Log in </button>
+            </form>
+        </div>
+
     </div>
 {% endblock content%}
 

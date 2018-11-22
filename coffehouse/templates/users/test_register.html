@@ -19,7 +19,7 @@
 {% block content %}
     <h1> Register to our system </h1>
 
-    <div class="content">
+{#    <div class="content">#}
         <form method="post">
             {% csrf_token %}
             {{ form.as_p }}
@@ -28,11 +28,6 @@
         </form>
 
         <p> Already have account? <a href="{% url 'users:login' %}"> Log in. </a> </p>
-    </div>
-{#    <form method="post">#}
-{#        {% csrf_token %}#}
-{#        {{ form.as_p }}#}
-{##}
-{#        <button type="submit" class="btn btn-success"> Register </button>#}
-{#      </form>#}
+{#    </div>#}
+
 {% endblock content%}

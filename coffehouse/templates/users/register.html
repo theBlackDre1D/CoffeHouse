@@ -9,13 +9,16 @@
 
 {% block content %}
     <div class="content">
-        <form method="post">
-            {% csrf_token %}
-            {{ form.as_p }}
+        <h1> Register to our shop! </h1>
 
-            <button type="submit" class="btn btn-success"> Register </button>
-        </form>
+        <div class="register_forms">
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
 
-        <p> Already have account? <a href="{% url 'users:login' %}"> Log in. </a> </p>
+                <button type="submit" class="button"> Register </button>
+            </form>
+        </div>
+        <p> Already have account? <a href="{% url 'users:login' %}"> LOG IN. </a> </p>
     </div>
 {% endblock content%}

@@ -4,21 +4,21 @@
 
 {% block extra_head %} 
     {% load staticfiles %}
-{#    <link rel="stylesheet" type="text/css" href="{% static "css/users/register_style.css" %}">#}
+    <link rel="stylesheet" type="text/css" href="{% static "css/users/change_profile.css" %}">
 {% endblock extra_head %}
 
 {% block content %}
     <div class="content">
         <h1> Here you can change information about you </h1>
 
-        <div class="content">
+{#        <div class="content">#}
             <form method="post">
                 {% csrf_token %}
                 {{ form.as_p }}
 
-                <button type="submit" class="btn btn-success">Update profile</button>
+                <button type="submit" >Update profile</button>
             </form>
-        </div>
+{#        </div>#}
 
     </div>
 {% endblock content%}

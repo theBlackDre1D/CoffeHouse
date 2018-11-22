@@ -23,31 +23,38 @@
         </ul>
     </div>
 
-    <div class="login">
-        {% if user.is_authenticated %}
-            <p>Hi {{ user.username }}
-            <p><a href="{% url 'users:logout' %}">Log out</a></p>
+    <div class="right_panel">
+        <div class="login">
+            {% if user.is_authenticated %}
+                <p>Hi {{ user.username }}
+                <p><a href="{% url 'users:logout' %}">Log out</a></p>
 
-            {% if user.is_customer %}
-                <p><a href="{% url 'users:show_profile' %}"> Show profile</a></p>
+                {% if user.is_customer %}
+                    <p><a href="{% url 'users:show_profile' %}"> Show profile</a></p>
+                {% endif %}
+
+                {% if user.is_owner %}
+                    <p><a href="{% url 'users:register_service' %}"> Register new service </a></p>
+                {% elif user.is_service %}
+                    <p><a href="{% url 'orders:unprocessed' %}"> Go to orders </a></p>
+                {% endif %}
+
+            {% else %}
+                <p> <a href="{% url 'users:login' %}"> LOG IN </a></p>
+                <p> <a href="{% url 'users:test_register' %}"> REGISTER </a></p>
             {% endif %}
 
-            {% if user.is_owner %}
-                <p><a href="{% url 'users:register_service' %}"> Register new service </a></p>
-            {% elif user.is_service %}
-                <p><a href="{% url 'orders:unprocessed' %}"> Go to orders </a></p>
-            {% endif %}
+        <p>==============</p>
+        <img src="{% static "images/cart.png" %}" class="shop_cart"/>
 
-
-        {% else %}
-            <p> <a href="{% url 'users:login' %}"> LOG IN </a></p>
-            <p> <a href="{% url 'users:test_register' %}"> REGISTER </a></p>
-        {% endif %}
+        </div>
     </div>
 
     <div class="brand_name">
         <p> <a href="{% url 'home:homepage' %}"> COFFEEHOUSE </a></p>
     </div>
+
+
 
     {% block content %}
     {% endblock content%}

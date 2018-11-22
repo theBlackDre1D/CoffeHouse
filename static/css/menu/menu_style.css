@@ -12,10 +12,10 @@ body {
 }
 
 .slideshow {
-  overflow: hidden;
-  height: 510px;
-  width: 728px;
-  margin: 0 auto;
+    overflow: hidden;
+    height: 510px;
+    width: 728px;
+    margin: -50px auto 0;
 }
 
 .slideshow p {
@@ -56,6 +56,27 @@ body {
   color: #000;
   text-align: center;
   font-size: 10em;
+}
+
+.content {
+    color: aliceblue;
+    display: block;
+    background: black;
+    padding-top: 5%;
+    margin-left: auto;
+    margin-right: auto;
+    width: 900px;
+    height: 85vh;
+    margin-top: 10px;
+    opacity: 0.90;
+    filter: alpha(opacity=90);
+    /*border-radius: 45%;*/
+}
+
+.content input {
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
 }
 
 @-webkit-keyframes slide {

@@ -29,4 +29,4 @@ def index(request):
     else:
         form = NewOrder()
 
-    return render(request, 'menu/index.html', {'form': form})
+    return render(request, 'menu/menu.html', {'form': form})

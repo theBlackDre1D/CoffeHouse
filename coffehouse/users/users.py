@@ -51,6 +51,26 @@ class RegisterNewServiceView(CreateView):
         return redirect('home:homepage')
 
 
+def check_changes(form, user):
+    current_customer = Customer.objects.get(user=user)
+
+    username = form.cleaned_data['username']
+    first_name = form.cleaned_data['first_name']
+    last_name = form.cleaned_data['last_name']
+    email = form.cleaned_data['email']
+    address = form.cleaned_data['address']
+    country = form.cleaned_data['country']
+
+    if current_customer.address != address and address is not None and address is not " ":
+        current_customer.address = address
+
+    if current_customer.country is not country and country is not None and country is not " ":
+        current_customer.country = country
+
+    if user.username is not username and username is not None and username is not " ":
+        user.username = username
+
+
 class CustomerProfileChangeView(CreateView):
     model = Customer
     form_class = UserProfileChange
@@ -63,17 +83,24 @@ class CustomerProfileChangeView(CreateView):
 
     def form_invalid(self, form):
         user = BaseUser.objects.get(username=self.request.user.username)
-        current_customer = Customer.objects.get(user=user)
+
         # user = form.save()
-        address = form.cleaned_data['address']
-        country = form.cleaned_data['country']
+        # address = form.cleaned_data['address']
+        # country = form.cleaned_data['country']
+        #
+        # if current_customer.address != address and address is not None and address is not " ":
+        #     current_customer.address = address
+        #
+        # if current_customer.country is not country and country is not None and country is not " ":
+        #     current_customer.country = country
 
-        if current_customer.address != address and address is not None and address is not " ":
-            current_customer.address = address
-
-        if current_customer.country is not country and country is not None and country is not " ":
-            current_customer.country = country
+        check_changes(form, user)
 
         current_customer.save()
 
         return redirect('users:profile')
+
+
+
+
+

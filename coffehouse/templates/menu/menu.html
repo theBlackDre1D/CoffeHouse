@@ -6,7 +6,9 @@
 {% endblock extra_head %}
 
 {% block content %}
-    <div class="slideshow">
+
+    <div class="content">
+        <div class="slideshow">
         <p>Today food</p>
           <div class="slide-wrapper">
             <div class="slide"><h1 class="slide-number">1</h1></div>
@@ -15,16 +17,18 @@
             <div class="slide"><h1 class="slide-number">4</h1></div>
             <div class="slide"><h1 class="slide-number">5</h1></div>
           </div>
+        </div>
+
+        <div class="order">
+            <form method="post">
+
+                {% csrf_token %}
+                {{ form.as_p }}
+
+                <button type="submit" class="btn btn-success">Post</button>
+
+            </form>
+        </div>
     </div>
 
-    <div class="order">
-        <form method="post">
-
-            {% csrf_token %}
-            {{ form.as_p }}
-
-            <button type="submit" class="btn btn-success">Post</button>
-
-        </form>
-    </div>
 {% endblock content %}
