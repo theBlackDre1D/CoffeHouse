@@ -12,6 +12,7 @@ urlpatterns = [
     url(r'^test/', users.RegisterNewCustomerView.as_view(), name='test_register'),
     url(r'^service-register/', users.RegisterNewServiceView.as_view(), name='register_service'),
     url(r'^welcome', views.welcome, name='welcome'),
-    url(r'^profile', views.show_profile, name='profile'),
+    url(r'^profile', views.show_profile, name='show_profile'),
+    url(r'^change-profile', users.CustomerProfileChangeView.as_view(), name='change_profile'),
     # url(r'^welcome', views.welcome, name='welcome')
 ]

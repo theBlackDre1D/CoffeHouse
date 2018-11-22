@@ -61,3 +61,12 @@ class RegisterNewServiceForm(UserCreationForm):
             user.save()
             Service.objects.create(user=user)
             return user
+
+
+class UserProfileChange(UserChangeForm):
+    address = forms.CharField(widget=forms.TextInput(), max_length=100, required=True)
+    country = forms.CharField(widget=forms.TextInput(), max_length=20, required=True)
+
+    class Meta:
+        model = BaseUser
+        fields = ['username', 'first_name', 'last_name', 'email', 'address', 'country']

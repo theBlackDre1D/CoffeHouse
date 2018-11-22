@@ -7,7 +7,7 @@ from coffehouse.users.models import BaseUser
 
 
 def show_profile(request):
-    return render(request, 'users/user_profile.html')
+    return render(request, 'users/profile.html')
 
 
 def test_register(request):

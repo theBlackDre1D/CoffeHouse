@@ -28,6 +28,10 @@
             <p>Hi {{ user.username }}
             <p><a href="{% url 'users:logout' %}">Log out</a></p>
 
+            {% if user.is_customer %}
+                <p><a href="{% url 'users:show_profile' %}"> Show profile</a></p>
+            {% endif %}
+
             {% if user.is_owner %}
                 <p><a href="{% url 'users:register_service' %}"> Register new service </a></p>
             {% elif user.is_service %}

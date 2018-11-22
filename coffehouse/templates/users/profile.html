@@ -9,7 +9,14 @@
 
 {% block content %}
     <div class="content">
-        <h1> Welcome back, {{ request.session.logged_user }}! </h1>
+        <h1> Profile for, {{ user.username }}! </h1>
+
+{#        user informations here #}
+
+
+    <button class="change_profile">
+        <p><a href="{% url 'users:change_profile' %}">Change profile</a></p>
+    </button>
 
     </div>
 {% endblock content%}
