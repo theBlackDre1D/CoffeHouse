@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %} Where to find us {% endblock %}
+
+{% block extra_head %} 
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static "css/about/find_us_style.css" %}">
+{% endblock extra_head %}
+
+{% block content %}
+    <div class="content">
+        <div id="map"></div>
+            <script>
+              var map;
+              function initMap() {
+                map = new google.maps.Map(document.getElementById('map'), {
+                  center: {lat: -34.397, lng: 150.644},
+                  zoom: 8
+                });
+              }
+            </script>
+        <script src="https://maps.googleapis.com/maps/api/js?key={{ key }}&callback=initMap"
+        async defer></script>
+    </div>
+{% endblock content%}
+
+{% block extra_scripts %}
+{% endblock extra_scripts %}

@@ -11,11 +11,19 @@
         <div class="slideshow">
         <p>Today food</p>
           <div class="slide-wrapper">
-            <div class="slide"><h1 class="slide-number">1</h1></div>
-            <div class="slide"><h1 class="slide-number">2</h1></div>
-            <div class="slide"><h1 class="slide-number">3</h1></div>
-            <div class="slide"><h1 class="slide-number">4</h1></div>
-            <div class="slide"><h1 class="slide-number">5</h1></div>
+            <div class="slide">
+                <img class="food_image" src="https://cdn-image.foodandwine.com/sites/default/files/original-201010-r-bacon-burger-brioche-HD.jpg">
+                <div class="description">
+                    <p class="slide-number">1</p>
+                    <br><br>
+                    <h1> Description </h1>
+                    nfdjbnjkdfbnjksdnfbjsdnjkfbnjksdfnbjdfjbdjksfbnjkdsfbjndjskbfnks
+                </div>
+            </div>
+            <div class="slide"><p class="slide-number">2</p></div>
+            <div class="slide"><p class="slide-number">3</p></div>
+            <div class="slide"><p class="slide-number">4</p></div>
+            <div class="slide"><p class="slide-number">5</p></div>
           </div>
         </div>
 
@@ -25,7 +33,7 @@
                 {% csrf_token %}
                 {{ form.as_p }}
 
-                <button type="submit" class="btn btn-success">Post</button>
+                <button type="submit" class="btn btn-success"> Add to basket </button>
 
             </form>
         </div>

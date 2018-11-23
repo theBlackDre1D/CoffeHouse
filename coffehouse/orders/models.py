@@ -8,6 +8,8 @@ class Food(models.Model):
     number_in_menu = models.IntegerField(default=-1)
     price = models.DecimalField(max_length=4, max_digits=6, decimal_places=2)
     # quantity = models.IntegerField()
+    week_day = models.IntegerField(default=-1)
+    img_url = models.CharField(max_length=1000, default=" ")
     description = models.CharField(max_length=1000, default="")
     note = models.CharField(max_length=255, null=True)
 

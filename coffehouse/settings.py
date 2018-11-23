@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.admindocs',
 
     # 'django_tables2',
+    # 'mapwidgets',
 
     'coffehouse.about',
     'coffehouse.stores',

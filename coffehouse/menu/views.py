@@ -13,7 +13,7 @@ def index(request):
             customer = Customer.objects.get(user=user)
             menu_number = new_order.cleaned_data.get('menu_number')
             note = new_order.cleaned_data.get('note')
-            quantity = new_order.cleaned_data.get('quantity')
+            # quantity = new_order.cleaned_data.get('quantity')
 
             food = Food.objects.get(number_in_menu=menu_number)
 
