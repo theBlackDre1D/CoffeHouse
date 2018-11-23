@@ -6,6 +6,9 @@ from .forms import NewOrder
 
 
 def index(request):
+
+    all_food = Food.objects.all()
+
     if request.method == 'POST':
         new_order = NewOrder(request.POST)
         if new_order.is_valid():
@@ -29,4 +32,4 @@ def index(request):
     else:
         form = NewOrder()
 
-    return render(request, 'menu/menu.html', {'form': form})
+    return render(request, 'menu/menu.html', {'form': form, 'all_food': all_food})

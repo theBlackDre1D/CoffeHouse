@@ -11,19 +11,17 @@
         <div class="slideshow">
         <p>Today food</p>
           <div class="slide-wrapper">
-            <div class="slide">
-                <img class="food_image" src="https://cdn-image.foodandwine.com/sites/default/files/original-201010-r-bacon-burger-brioche-HD.jpg">
-                <div class="description">
-                    <p class="slide-number">1</p>
-                    <br><br>
-                    <h1> Description </h1>
-                    nfdjbnjkdfbnjksdnfbjsdnjkfbnjksdfnbjdfjbdjksfbnjkdsfbjndjskbfnks
+              {% for food in all_food %}
+                  <div class="slide">
+                    <img class="food_image" src="{{ food.img_url }}">
+                    <div class="description">
+                        <p class="slide-number">{{ food.number_in_menu }}</p>
+                        <br><br>
+                        <h1> Description </h1>
+                        {{ food.description }}
+                    </div>
                 </div>
-            </div>
-            <div class="slide"><p class="slide-number">2</p></div>
-            <div class="slide"><p class="slide-number">3</p></div>
-            <div class="slide"><p class="slide-number">4</p></div>
-            <div class="slide"><p class="slide-number">5</p></div>
+              {% endfor %}
           </div>
         </div>
 

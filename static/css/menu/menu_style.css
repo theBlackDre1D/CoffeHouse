@@ -37,22 +37,6 @@ body {
     width: 728px;
 }
 
-.slide:nth-child(1) {
-  /*background: #D93B65;*/
-    /*background: url("https://cdn-image.foodandwine.com/sites/default/files/original-201010-r-bacon-burger-brioche-HD.jpg");*/
-}
-
-.slide:nth-child(2) {
-  background: #037E8C;
-}
-
-.slide:nth-child(3) {
-  background: #36BF66;
-}
-
-.slide:nth-child(4) {
-  background: #D9D055;
-}
 
 .slide-number {
     background-color: white;
@@ -100,7 +84,7 @@ body {
 
 .food_image {
     /*background: url("https://www.dashofsanity.com/wp-content/uploads/2018/01/Tikka-Masala-PIN.jpg");*/
-    width: 310px;
+    width: 510px;
     max-width:100%;
     max-height:100%;
     position: absolute;
