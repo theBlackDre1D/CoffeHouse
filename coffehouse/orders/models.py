@@ -30,8 +30,8 @@ class Drink(models.Model):
 
 class Order(models.Model):
     user = models.ForeignKey(Customer, related_name='client', on_delete=models.CASCADE, null=True)
-    food = models.ForeignKey(Food, related_name='foods', on_delete=models.CASCADE)
-    drink = models.ForeignKey(Drink, related_name='drinks', on_delete=models.CASCADE, null=True)
+    food = models.ManyToManyField(Food, related_name='foods')
+    drink = models.ManyToManyField(Drink, related_name='drinks', default=None)
     created_at = models.DateField(auto_now_add=True)
     processed = models.BooleanField(default=False)
     processed_by = models.ForeignKey(Service, related_name='processed_by', on_delete=models.CASCADE, null=True)
@@ -40,3 +40,12 @@ class Order(models.Model):
     def __str__(self):
         return "{user_name} ordered something at: {date}".format(user_name=self.user.__str__(),
                                                                  date=self.created_at.__str__())
+
+
+class Chart(models.Model):
+    user = models.OneToOneField(Customer, related_name='customer', on_delete=models.CASCADE, null=True)
+    food = models.ManyToManyField(Food, related_name='food_in_chart', default=None)
+    drink = models.ManyToManyField(Drink, related_name='drinks_in_chart', default=None)
+
+    def __str__(self):
+        return "{username}' shopping chart".format(username=self.user.__str__())

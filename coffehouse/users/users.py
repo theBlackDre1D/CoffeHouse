@@ -2,6 +2,7 @@ from django.contrib.auth import login
 from django.shortcuts import redirect
 from django.views.generic import CreateView
 
+from coffehouse.orders.models import Chart
 from coffehouse.users.forms import RegisterNewCustomerForm, RegisterNewServiceForm, UserProfileChange
 from coffehouse.users.models import BaseUser, Customer, Service
 
@@ -23,7 +24,9 @@ class RegisterNewCustomerView(CreateView):
         user.is_customer = True
         user.save()
         login(self.request, user)
-        Customer.objects.create(user=user, address=address, country=country)
+        customer = Customer.objects.create(user=user, address=address, country=country)
+        new_chart = Chart.objects.create(user=customer)
+        new_chart.save()
 
         return redirect('home:homepage')
 

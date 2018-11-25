@@ -32,16 +32,15 @@
 {% block extra_scripts %}
     <script>
         var proceedOrder = function (orderPK) {
-            console.log("Spracovana objednavka: " + orderPK);
+            console.log("Order number: " + orderPK);
         };
         $(document).ready(function () {
-            {#$("#extra-content").hide();#}
-            $(".btn-link").click(function (eventObject) {
-                {#$("#extra-content").show();#}
+            $(".btn-link").click(function () {
                 $(this).siblings(".success_processed").show();
                 $(this).hide();
                 console.log("User clicked on button!")
             });
         });
+
     </script>
 {% endblock %}
