@@ -2,7 +2,7 @@
 
 {% block title %} Unprocessed orders! {% endblock %}
 
-{% block extra_head %} 
+{% block extra_head %}
     {% load staticfiles %}
     <link rel="stylesheet" type="text/css" href="{% static "css/orders/unprocessed_orders_style.css" %}">
 {% endblock extra_head %}
@@ -13,30 +13,35 @@
 
         {% for order in orders %}
             <div class="order">
-                <div class="success_processed" style="display: none;" id="extra-content">
+                <div class="success_processed" style="display: none;">
                     <p> This order was successfully processed! </p>
                 </div>
                 <p> {{ order.food.name }}</p>
-                <div class="line"> </div>
+                <div class="line"></div>
                 <p class="username"> {{ order.user.user.username }}</p>
                 <p> {{ order.user.address }}</p>
 
-                <input type="submit" class="btn-link" name="proceed" value="Process order" id="proceed-order">
+                <input type="submit" class="btn-link" name="proceed" value="Process order"
+                       onclick="proceedOrder({{ order.pk }});">
             </div>
         {% endfor %}
 
     </div>
-{% endblock content%}
+{% endblock content %}
 
 {% block extra_scripts %}
     <script>
-        $(document).ready(function() {
-            $("#extra-content").hide();
-                $("#proceed-order").click(function(){
-                    $("#extra-content").show();
-                    $("#proceed-order").hide();
-                    console.log("User clicked on button!")
-                });
+        var proceedOrder = function (orderPK) {
+            console.log("Spracovana objednavka: " + orderPK);
+        };
+        $(document).ready(function () {
+            {#$("#extra-content").hide();#}
+            $(".btn-link").click(function (eventObject) {
+                {#$("#extra-content").show();#}
+                $(this).siblings(".success_processed").show();
+                $(this).hide();
+                console.log("User clicked on button!")
+            });
         });
     </script>
 {% endblock %}
