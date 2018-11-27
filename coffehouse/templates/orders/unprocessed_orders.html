@@ -16,13 +16,16 @@
                 <div class="success_processed" style="display: none;">
                     <p> This order was successfully processed! </p>
                 </div>
+                <div class="error" style="display: none;">
+                    <p> Some error while processing order. Try later! </p>
+                </div>
                 <p> {{ order.food.name }}</p>
                 <div class="line"></div>
                 <p class="username"> {{ order.user.user.username }}</p>
-                <p> {{ order.user.address }}</p>
+                <p> {{ order.user.address }} </p>
 
                 <input type="submit" class="btn-link" name="proceed" value="Process order"
-                       onclick="proceedOrder({{ order.pk }});">
+                       onclick="proceedOrder(this, {{ order.pk }});">
             </div>
         {% endfor %}
 
@@ -31,16 +34,30 @@
 
 {% block extra_scripts %}
     <script>
-        var proceedOrder = function (orderPK) {
+        var proceedOrder = function (button, orderPK) {
             console.log("Order number: " + orderPK);
+            $.ajax({
+                url : '{% url "orders:proceed_order" %}',
+                data: {
+                    'order_id': orderPK
+                },
+                dataType: 'json',
+                success: function (data) {
+                    if (data.message) {
+                        $(button).siblings(".success_processed").show();
+                        $(button).hide();
+                    } else {
+                        $(button).siblings(".error").show();
+                    }
+                }
+            })
         };
-        $(document).ready(function () {
-            $(".btn-link").click(function () {
-                $(this).siblings(".success_processed").show();
-                $(this).hide();
-                console.log("User clicked on button!")
-            });
-        });
-
+        {#$(document).ready(function () {#}
+        {#    $(".btn-link").click(function () {#}
+        {#        $(this).siblings(".success_processed").show();#}
+        {#        $(this).hide();#}
+        {#        console.log("User clicked on button!")#}
+        {#    });#}
+        {#});#}
     </script>
 {% endblock %}

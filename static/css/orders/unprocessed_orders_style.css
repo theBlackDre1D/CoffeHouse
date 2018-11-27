@@ -16,3 +16,7 @@
 .success_processed {
     background: #36BF66;
 }
+
+.error {
+    background: red;
+}

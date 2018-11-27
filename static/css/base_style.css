@@ -156,6 +156,7 @@ html * {
 
 .content textarea {
     border-radius: 15px;
+    height: 7vh;
 }
 
 .right_panel {
@@ -171,6 +172,22 @@ html * {
 .shop_cart {
     filter: invert(100%);
     width: 30px;
+}
+
+a:link {
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    font-family: Anson, serif;
+    text-decoration: none;
+}
+
+a:visited {
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    font-family: Anson, serif;
+    text-decoration: none;
 }
 
 button {

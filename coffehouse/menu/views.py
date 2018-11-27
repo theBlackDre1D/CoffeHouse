@@ -2,7 +2,7 @@ from django.shortcuts import render
 
 from coffehouse.users.models import Customer
 from ..orders.models import Food, Chart, Drink
-from .forms import AddItemToChart
+from .forms import NewOrder
 
 
 # def index(request):
@@ -34,10 +34,10 @@ from .forms import AddItemToChart
 
 def index(request):
     all_food = Food.objects.all()
-    form = AddItemToChart()
+    form = NewOrder()
 
     if request.method == 'POST':
-        new_order = AddItemToChart(request.POST)
+        new_order = NewOrder(request.POST)
         if new_order.is_valid():
             user = request.user
             customer = Customer.objects.get(user=user)

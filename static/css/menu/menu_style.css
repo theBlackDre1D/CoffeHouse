@@ -91,6 +91,9 @@ body {
     left: 0;
 }
 
+.content textarea {
+    height: 7vh;
+}
 
 
 @-webkit-keyframes slide {
