@@ -31,7 +31,7 @@
                 {% csrf_token %}
                 {{ form.as_p }}
 
-                {% if user.is_authenticated %}
+                {% if user.is_authenticated and user.is_customer %}
                     <button type="submit" class="btn btn-success"> Add to basket </button>
                 {% else %}
                     <p>Before shopping you have to <a href="{% url 'users:login' %}">LOG IN</a>. <br>

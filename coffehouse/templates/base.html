@@ -45,8 +45,10 @@
             {% endif %}
 
         <p>==============</p>
-        <img src="{% static "images/cart.png" %}" class="shop_cart"/>
-
+        <a href="{% url "orders:show_chart" %}"> <img src="{% static "images/cart.png" %}" class="shop_cart"/> </a>
+{#        {% if user.is_authenticated %}#}
+{#            #}
+{#        {% endif %}#}
         </div>
     </div>
 

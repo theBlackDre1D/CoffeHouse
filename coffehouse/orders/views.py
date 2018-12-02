@@ -2,8 +2,8 @@ from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
 from django.shortcuts import render, redirect
 
-from coffehouse.orders.models import Order
-from coffehouse.users.models import Service
+from coffehouse.orders.models import Order, Chart
+from coffehouse.users.models import Service, Customer
 
 
 def successful_order(request):
@@ -35,7 +35,7 @@ def proceed_order(request):
         order.processed = True
 
         order.save()
-        
+
         success = True
     except:
         success = False
@@ -45,3 +45,15 @@ def proceed_order(request):
     }
 
     return JsonResponse(data)
+
+
+@login_required
+def show_chart(request):
+    user = request.user
+    customer = Customer.objects.get(user=user)
+    chart = Chart.objects.get(user=customer)
+
+    food = chart.food.all()
+    drinks = chart.drink.all()
+
+    return render(request, 'orders/show_chart.html', {'food': food, 'drinks': drinks, 'total_price': chart.total_price})
