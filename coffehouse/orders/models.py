@@ -46,7 +46,7 @@ class Chart(models.Model):
     user = models.OneToOneField(Customer, related_name='customer', on_delete=models.CASCADE, null=True)
     food = models.ManyToManyField(Food, related_name='food_in_chart', default=None)
     drink = models.ManyToManyField(Drink, related_name='drinks_in_chart', default=None)
-    total_price = models.IntegerField(default=0)
+    total_price = models.DecimalField(default=0.0, max_length=4, max_digits=6, decimal_places=2)
 
     def __str__(self):
         return "{username}' shopping chart".format(username=self.user.__str__())

@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block title %} Yours chart {% endblock %}
+{% block title %} Your chart {% endblock %}
 
 {% block extra_head %} 
     {% load staticfiles %}
@@ -9,9 +9,9 @@
 
 {% block content %}
     <div class="content">
-        <h1> Yours shopping chart: </h1>
+        <h1> Your shopping chart: </h1>
 
-        <h3>Food</h3>
+        <h2>Food</h2>
         {% for item in food %}
             <div class="chart_item">
                 <p> {{ item.name }}</p>
@@ -19,7 +19,7 @@
             </div>
         {% endfor %}
 
-        <h3> Drinks: </h3>
+        <h2> Drinks: </h2>
         {% for item in drinks %}
             <div class="chart_item">
                 <p> {{ item.name }}</p>
@@ -30,6 +30,9 @@
 
     <p>Total price is: {{ total_price }}</p>
 
+    <form method="get">
+        <input type="submit" value="ORDER" name="order"/>
+    </form>
     </div>
 
 

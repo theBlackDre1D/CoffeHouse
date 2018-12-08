@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block extra_head %}
 {#    link here custom .css file#}
 {% endblock extra_head %}
@@ -7,6 +7,9 @@
 {% block content %}
     <div class="content">
         <h1> Your order was successful! </h1>
+        <img src="{% static "images/done_sign.png"%}">
+        <br>
+        <a href="{% url 'orders:orders_history' %}">Go to history of your orders</a>
     </div>
 {% endblock content%}
 

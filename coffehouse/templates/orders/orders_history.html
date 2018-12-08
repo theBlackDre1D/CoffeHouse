@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title %} History of orders {% endblock %}
+
+{% block extra_head %} 
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static "css/orders/orders_history_style.css" %}">
+{% endblock extra_head %}
+
+{% block content %}
+    <div class="content">
+        {% for order in orders %}
+            <div class="old_order">
+                <h3>Food:</h3>
+                {% for food in order.food.all %}
+                    {{ food.name }}
+                    <br>
+                {% endfor %}
+                <br>
+                <h3>Drinks</h3>
+                {% for drink in order.drink.all %}
+                    {{ drink.name }}
+                {% endfor %}
+            <br>
+            {% if order.processed %}
+                <p>Status: PROCESSED </p>
+            {% else %}
+                <p>Status: WAITING FOR PROCESSING </p>
+            {% endif %}
+            </div>
+        {% endfor %}
+
+    </div>
+{% endblock content%}
+
+{% block extra_scripts %}
+
+{% endblock extra_scripts %}

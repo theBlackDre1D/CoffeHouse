@@ -31,6 +31,7 @@
 
                 {% if user.is_customer %}
                     <p><a href="{% url 'users:show_profile' %}"> Show profile</a></p>
+                    <p><a href="{% url 'orders:orders_history' %}"> Orders history  </a></p>
                 {% endif %}
 
                 {% if user.is_owner %}

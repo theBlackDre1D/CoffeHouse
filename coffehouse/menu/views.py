@@ -51,7 +51,7 @@ def index(request):
             if drink_name is not None:
                 try:
                     drink = Drink.objects.get(name=drink_name)
-                    chart.drinks_in_chart.add(drink)
+                    chart.drink.add(drink)
                     chart.total_price += drink.price
                 except:
                     pass

@@ -2,8 +2,8 @@ from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
 from django.shortcuts import render, redirect
 
-from coffehouse.orders.models import Order, Chart
-from coffehouse.users.models import Service, Customer
+from coffehouse.orders.models import Order, Chart, Food, Drink
+from coffehouse.users.models import Service, Customer, BaseUser
 
 
 def successful_order(request):
@@ -56,4 +56,33 @@ def show_chart(request):
     food = chart.food.all()
     drinks = chart.drink.all()
 
+    if request.GET.get('order'):
+        new_order = Order()
+        new_order.user = customer
+        new_order.save()
+
+        food_list = list(chart.food.all())
+        for food in food_list:
+            db_food = Food.objects.get(name=food.name)
+            new_order.food.add(db_food)
+
+        drink_list = list(chart.drink.all())
+        for drink in drink_list:
+            db_drink = Drink.objects.get(name=drink.name)
+            new_order.drink.add(db_drink)
+
+        new_order.save()
+
+        return render(request, 'orders/successful_order.html')
+
     return render(request, 'orders/show_chart.html', {'food': food, 'drinks': drinks, 'total_price': chart.total_price})
+
+
+@login_required
+def orders_history(request):
+    user = request.user
+    customer = Customer.objects.get(user=user)
+
+    customer_orders = Order.objects.filter(user=customer)
+
+    return render(request, 'orders/orders_history.html', {'orders': customer_orders})
