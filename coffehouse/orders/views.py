@@ -71,6 +71,7 @@ def show_chart(request):
             db_drink = Drink.objects.get(name=drink.name)
             new_order.drink.add(db_drink)
 
+        new_order.total_price = chart.total_price
         new_order.save()
 
         return render(request, 'orders/successful_order.html')
@@ -78,7 +79,7 @@ def show_chart(request):
     return render(request, 'orders/show_chart.html', {'food': food, 'drinks': drinks, 'total_price': chart.total_price})
 
 
-@login_required
+@login_required(login_url='/users/login')
 def orders_history(request):
     user = request.user
     customer = Customer.objects.get(user=user)

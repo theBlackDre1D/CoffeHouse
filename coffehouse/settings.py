@@ -118,6 +118,7 @@ AUTH_USER_MODEL = 'users.BaseUser'
 
 LOGIN_REDIRECT_URL = 'homepage'
 LOGOUT_REDIRECT_URL = 'homepage'
+LOGIN_URL = '/users/login/'
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.11/topics/i18n/

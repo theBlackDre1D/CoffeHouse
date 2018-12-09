@@ -2,7 +2,7 @@
 
 {% block title %} History of orders {% endblock %}
 
-{% block extra_head %} 
+{% block extra_head %}
     {% load staticfiles %}
     <link rel="stylesheet" type="text/css" href="{% static "css/orders/orders_history_style.css" %}">
 {% endblock extra_head %}
@@ -16,22 +16,26 @@
                     {{ food.name }}
                     <br>
                 {% endfor %}
+                {% if order.drink.all.count > 0 %}
+                    <br>
+                    <h3>Drinks</h3>
+                    {% for drink in order.drink.all %}
+                        {{ drink.name }}
+                    {% endfor %}
+                {% endif %}
+
                 <br>
-                <h3>Drinks</h3>
-                {% for drink in order.drink.all %}
-                    {{ drink.name }}
-                {% endfor %}
-            <br>
-            {% if order.processed %}
-                <p>Status: PROCESSED </p>
-            {% else %}
-                <p>Status: WAITING FOR PROCESSING </p>
-            {% endif %}
+                {% if order.processed %}
+                    <p>Status: PROCESSED </p>
+                {% else %}
+                    <p>Status: WAITING FOR PROCESSING </p>
+                {% endif %}
+                <div class="price"> {{ order.total_price }} $</div>
             </div>
         {% endfor %}
 
     </div>
-{% endblock content%}
+{% endblock content %}
 
 {% block extra_scripts %}
 

@@ -20,7 +20,6 @@ class Food(models.Model):
 class Drink(models.Model):
     name = models.CharField(max_length=50)
     price = models.DecimalField(max_length=4, max_digits=6, decimal_places=2)
-    # quantity = models.IntegerField()
     description = models.CharField(max_length=1000, default="")
     note = models.CharField(max_length=255, null=True)
 
@@ -36,6 +35,7 @@ class Order(models.Model):
     processed = models.BooleanField(default=False)
     processed_by = models.ForeignKey(Service, related_name='processed_by', on_delete=models.CASCADE, null=True)
     note = models.CharField(max_length=255, null=True)
+    total_price = models.DecimalField(default=0.0, max_length=4, max_digits=6, decimal_places=2)
 
     def __str__(self):
         return "{user_name} ordered something at: {date}".format(user_name=self.user.__str__(),

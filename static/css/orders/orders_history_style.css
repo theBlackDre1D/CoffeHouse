@@ -1,4 +1,14 @@
 .old_order {
+    position: relative;
     border: solid 2px white;
     margin-top: 10px;
+}
+
+.price {
+    position: absolute;
+    top: 50%;
+    right: 5%;
+
+    font-weight: bold;
+    font-size: 22px;
 }
