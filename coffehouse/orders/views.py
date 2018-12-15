@@ -74,8 +74,10 @@ def show_chart(request):
         new_order.total_price = chart.total_price
         new_order.save()
 
-        chart.food = None
-        chart.drink = None
+        chart.food.clear()
+        chart.drink.clear()
+        chart.total_price = 0.0
+        chart.save()
 
         return render(request, 'orders/successful_order.html')
 

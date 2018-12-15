@@ -30,9 +30,11 @@
 
     <p>Total price is: {{ total_price }}</p>
 
-    <form method="get">
-        <input type="submit" value="ORDER" name="order"/>
-    </form>
+    {% if total_price > 0 %}
+        <form method="get">
+            <input type="submit" value="ORDER" name="order"/>
+        </form>
+    {% endif %}
     </div>
 
 
