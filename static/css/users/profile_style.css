@@ -1,0 +1,24 @@
+.change_profile {
+    width: 200px;
+    height: 30px;
+}
+
+.change_profile a {
+    color: black;
+}
+
+.field {
+    background-color: whitesmoke;
+    horiz-align: center;
+    vertical-align: center;
+    color: black;
+    height: 30px;
+    margin-left: 30%;
+    margin-right: 30%;
+    font-size: 20px;
+    border-radius: 5px;
+}
+
+h3 {
+    margin-right: 30%;
+}

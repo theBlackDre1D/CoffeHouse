@@ -3,11 +3,14 @@ from django.shortcuts import render
 from django.contrib.auth import authenticate, login, logout
 
 from coffehouse.users.forms import RegisterNewCustomerForm, LoginUser
-from coffehouse.users.models import BaseUser
+from coffehouse.users.models import BaseUser, Customer
 
 
 def show_profile(request):
-    return render(request, 'users/profile.html')
+    user = request.user
+    customer = Customer.objects.get(user=user)
+
+    return render(request, 'users/profile.html', {'base_user': user,'customer': customer})
 
 
 def test_register(request):

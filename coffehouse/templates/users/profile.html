@@ -2,21 +2,54 @@
 
 {% block title %} Welcome home {% endblock %}
 
-{% block extra_head %} 
+{% block extra_head %}
     {% load staticfiles %}
-    <link rel="stylesheet" type="text/css" href="{% static "css/users/register_style.css" %}">
+    <link rel="stylesheet" type="text/css" href="{% static "css/users/profile_style.css" %}">
 {% endblock extra_head %}
 
 {% block content %}
     <div class="content">
         <h1> Profile for, {{ user.username }}! </h1>
 
-{#        user informations here #}
+        <br> <br> <br>
 
+        <h3>User name</h3>
+        <div class="field">
+            {{ base_user.username }}
+        </div>
+        <br>
 
-    <button class="change_profile">
-        <p><a href="{% url 'users:change_profile' %}">Change profile</a></p>
-    </button>
+        <h3>First name</h3>
+        <div class="field">
+            {{ base_user.first_name }}
+        </div>
+        <br>
+
+        <h3>Last name</h3>
+        <div class="field">
+            {{ base_user.last_name }}
+        </div>
+        <br>
+
+        <h3>E-mail address</h3>
+        <div class="field">
+            {{ base_user.email }}
+        </div>
+        <br>
+
+        <h3>Address</h3>
+        <div class="field">
+            {{ customer.address }}
+        </div>
+        <br>
+
+        <h3>Country</h3>
+        <div class="field">
+            {{ customer.country }}
+        </div>
+        <br> <br>
+
+{#        <button class="change_profile"><a href="{% url 'users:change_profile' %}">Change profile</a></button>#}
 
     </div>
-{% endblock content%}
+{% endblock content %}

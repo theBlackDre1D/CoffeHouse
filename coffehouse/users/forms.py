@@ -31,6 +31,9 @@ class RegisterNewCustomerForm(UserCreationForm):
     class Meta(UserCreationForm.Meta):
         model = BaseUser
         fields = ['username', 'first_name', 'last_name', 'email', 'address', 'country']
+        help_texts = {
+            'username': ''
+        }
 
         @transaction.atomic
         def save(self):
@@ -70,3 +73,6 @@ class UserProfileChange(UserChangeForm):
     class Meta:
         model = BaseUser
         fields = ['username', 'first_name', 'last_name', 'email', 'address', 'country']
+        help_texts = {
+            'username': None
+        }
