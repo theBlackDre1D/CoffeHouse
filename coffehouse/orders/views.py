@@ -48,6 +48,23 @@ def proceed_order(request):
 
 
 @login_required
+def cancel_order(request):
+    order_id = request.GET.get('order_id', None)
+    success = False
+    try:
+        order = Order.objects.get(id=order_id)
+        order.delete()
+    except:
+        success = False
+
+    data = {
+        'message': success
+    }
+
+    return JsonResponse(data)
+
+
+@login_required
 def show_chart(request):
     user = request.user
     customer = Customer.objects.get(user=user)

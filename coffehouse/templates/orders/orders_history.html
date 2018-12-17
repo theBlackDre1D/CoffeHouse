@@ -9,8 +9,16 @@
 
 {% block content %}
     <div class="content">
+        <H1>Orders history</H1>
         {% for order in orders %}
             <div class="old_order">
+                <div class="success_delete" style="display: none;">
+                    <p> This order was successfully canceled! </p>
+                </div>
+                <div class="error" style="display: none;">
+                    <p> Some error while canceling order. Try later! </p>
+                </div>
+
                 <h3>Food:</h3>
                 {% for food in order.food.all %}
                     {{ food.name }}
@@ -29,8 +37,11 @@
                     <p>Status: PROCESSED </p>
                 {% else %}
                     <p>Status: WAITING FOR PROCESSING </p>
+                    <input type="submit" class="btn-link" name="proceed" value="CANCEL order"
+                           onclick="cancelOrder(this, {{ order.pk }});">
                 {% endif %}
                 <div class="price"> {{ order.total_price }} $</div>
+
             </div>
         {% endfor %}
 
@@ -38,5 +49,24 @@
 {% endblock content %}
 
 {% block extra_scripts %}
-
+    <script>
+        var cancelOrder = function (button, orderPK) {
+            console.log("Order number: " + orderPK);
+            $.ajax({
+                url: '{% url "orders:cancel_order" %}',
+                data: {
+                    'order_id': orderPK
+                },
+                dataType: 'json',
+                success: function (data) {
+                    if (data.message) {
+                        $(button).siblings(".success_delete").show();
+                        $(button).hide();
+                    } else {
+                        $(button).siblings(".error").show();
+                    }
+                }
+            })
+        };
+    </script>
 {% endblock extra_scripts %}
