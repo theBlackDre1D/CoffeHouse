@@ -19,11 +19,25 @@
                 <div class="error" style="display: none;">
                     <p> Some error while processing order. Try later! </p>
                 </div>
-                <p> {{ order.food.name }}</p>
-                <div class="line"></div>
-                <p class="username"> {{ order.user.user.username }}</p>
-                <p> {{ order.user.address }} </p>
+                {#                not hidden stuff #}
+                {% if order.food.count > 0 %}
+                    Food:
+                    {% for food in order.food.all %}
+                        <p> {{ food }}</p>
+                    {% endfor %}
+                    --------------------------------- <br> <br>
+                {% endif %}
 
+                {% if order.drink.count > 0 %}
+                    Drink:
+                    {% for drink in order.drink.all %}
+                        <p> {{ drink }}</p>
+                    {% endfor %}
+                {% endif %}
+                <div class="line"></div>
+                <p class="username"> NAME -> {{ order.user.user.username }}</p>
+                <p ><b> ADDRESS -> </b> {{ order.user.address }} </p>
+                <p><b> Total price -> {{ order.total_price }} $</b></p>
                 <input type="submit" class="btn-link" name="proceed" value="Process order"
                        onclick="proceedOrder(this, {{ order.pk }});">
             </div>
@@ -37,7 +51,7 @@
         var proceedOrder = function (button, orderPK) {
             console.log("Order number: " + orderPK);
             $.ajax({
-                url : '{% url "orders:proceed_order" %}',
+                url: '{% url "orders:proceed_order" %}',
                 data: {
                     'order_id': orderPK
                 },
