@@ -54,6 +54,7 @@ def cancel_order(request):
     try:
         order = Order.objects.get(id=order_id)
         order.delete()
+        success = True
     except:
         success = False
 
